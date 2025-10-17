@@ -255,19 +255,10 @@
         .add-to-cart-btn:hover {
             background-color: #004d00;
         }
-        /* --- CRITICAL MOBILE FIX: FORCE INTERACTIVE ELEMENTS TO FRONT LAYER --- */
-.add-to-cart-btn, 
-.qty-btn,
-.price-selector label {
-    position: relative; 
-    z-index: 999;     /* Ensure they are on top of other content */
-}
 
-/* Ensure the floating cart is also on a very high layer */
-#floating-cart {
-    /* ... existing styles ... */
-    z-index: 1000; /* Already there, but confirm it's high */
-}
+
+        
+        
         /* --- About Us, Footer, and Modal styles --- */
         .about-us {
             background-color: #e6ffe6; /* Very light green */
@@ -570,7 +561,7 @@
             <a href="#home">Home</a>
             <a href="#products">Products</a>
             <a href="#about">About Us</a>
-           <!-- <a href="#" class="cta-nav" id="open-cart-nav">View Cart</a>-->
+           <!--<a href="#" class="cta-nav" id="open-cart-nav">View Cart</a>-->
         </nav>
     </header>
 
@@ -1251,25 +1242,26 @@
             }, 1000);
         }
         
-        function handleQuantityControl(event) {
-            const button = event.target;
-            const action = button.getAttribute('data-action');
-            const targetId = button.getAttribute('data-target');
-            const quantityInput = document.getElementById(targetId);
-            
-            if (!quantityInput) return;
+        // Old/Existing function:
+function handleQuantityControl(event) {
+    const button = event.target;
+    const action = button.getAttribute('data-action');
+    const targetId = button.getAttribute('data-target');
+    const quantityInput = document.getElementById(targetId);
+    
+    if (!quantityInput) return;
 
-            let currentValue = parseInt(quantityInput.value) || 1;
-            const min = parseInt(quantityInput.getAttribute('min')) || 1;
+    let currentValue = parseInt(quantityInput.value) || 1;
+    const min = parseInt(quantityInput.getAttribute('min')) || 1;
 
-            if (action === 'increment') {
-                currentValue += 1;
-            } else if (action === 'decrement' && currentValue > min) {
-                currentValue -= 1;
-            }
-            
-            quantityInput.value = currentValue;
-        }
+    if (action === 'increment') {
+        currentValue += 1;
+    } else if (action === 'decrement' && currentValue > min) {
+        currentValue -= 1;
+    }
+    
+    quantityInput.value = currentValue;
+}
 
         function handleRemoveItem(event) {
             const productId = event.target.getAttribute('data-id');
@@ -1409,13 +1401,16 @@
             }
             
             // 2. Unit Select Radio Buttons
-            card.querySelectorAll('.price-selector input[type="radio"]').forEach(radio => {
-                radio.addEventListener('change', handleUnitChange);
-            });
-            
             // 3. Quantity + and - Buttons
             card.querySelectorAll('.qty-btn').forEach(button => {
+                // Desktop/Mouse Click Listener (keep this)
                 button.addEventListener('click', handleQuantityControl);
+                
+                // 🔥 MOBILE FIX: Add Touch End Listener for reliable mobile taps
+                button.addEventListener('touchend', (e) => {
+                    e.preventDefault(); // Prevents both 'touchend' and 'click' from firing
+                    handleQuantityControl(e);
+                });
             });
             
             // Set initial quantity label text
@@ -1501,6 +1496,4 @@
     });
 </script>
 </body>
-
 </html>
-
