@@ -255,7 +255,19 @@
         .add-to-cart-btn:hover {
             background-color: #004d00;
         }
-        
+        /* --- CRITICAL MOBILE FIX: FORCE INTERACTIVE ELEMENTS TO FRONT LAYER --- */
+.add-to-cart-btn, 
+.qty-btn,
+.price-selector label {
+    position: relative; 
+    z-index: 999;     /* Ensure they are on top of other content */
+}
+
+/* Ensure the floating cart is also on a very high layer */
+#floating-cart {
+    /* ... existing styles ... */
+    z-index: 1000; /* Already there, but confirm it's high */
+}
         /* --- About Us, Footer, and Modal styles --- */
         .about-us {
             background-color: #e6ffe6; /* Very light green */
@@ -1491,3 +1503,4 @@
 </body>
 
 </html>
+
