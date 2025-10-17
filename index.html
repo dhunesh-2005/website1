@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramiah Rice Mill Feeds | Premium Cattle & Livestock Nutrition</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- Base Reset & Typography --- */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #f7f7f7; /* Light background */
+            color: #333;
+        }
+
+        h1, h2, h3 {
+            font-weight: 600;
+            color: #e08907; /* Dark Green */
+        }
+
+        a {
+            text-decoration: none;
+            color: #006400;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #6b8e23; /* Olive Green */
+        }
+
+        /* --- Header & Navigation (MODIFIED FOR SEARCH BAR) --- */
+        header {
+            background-color: #fff;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            /* Added Flexbox properties for layout */
+            gap: 20px; 
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #8b4513; /* Brown/Earth Tone */
+            flex-shrink: 0; /* Prevents logo from shrinking */
+        }
+        
+        /* New style for the search container */
+        .search-container {
+            flex-grow: 1; /* Allows search bar to take up available space */
+            max-width: 400px;
+        }
+
+        #product-search {
+            width: 100%; 
+            padding: 8px 12px;
+            border: 1px solid #ccc; 
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+
+
+        nav a {
+            margin-left: 25px;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+
+        .cta-nav {
+            background-color: #ff8c00; /* Bright Orange Accent */
+            color: white !important;
+            padding: 10px 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .cta-nav:hover {
+            background-color: #e57e00;
+        }
+        
+        /* --- Hero Section (Image and Text Overlay) --- */
+        /* --- Hero Section (Image and Text Overlay) --- */
+.hero {
+    /* Image background settings */
+    background-image: url('img/front1.jpg'); /* CRITICAL: Change 'hero-background.jpg' to your file name if different */
+    background-size: cover;          
+    background-position: center center; 
+    background-repeat: no-repeat;    
+    
+    /* Text layout settings */
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    height: 400px; /* Standard height; adjust if needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative; 
+    overflow: hidden; 
+}
+/* Dark overlay for text readability */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* 40% black overlay to make text stand out */
+    z-index: 1; 
+}
+/* Ensure text is above the overlay */
+.hero h1, .hero p, .hero .cta-button {
+    z-index: 2; 
+    position: relative;
+}
+/* NOTE: The existing h1, p, and cta-button styles remain unchanged */
+
+        .cta-button {
+            display: inline-block;
+            background-color: #ff8c00;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #e57e00;
+        }
+
+        /* --- Products Section --- */
+        .product-grid {
+            padding: 60px 5%;
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        /* Added for search filter */
+        .product-grid > .product-card {
+            display: flex; 
+        }
+
+        .product-grid h2 {
+            width: 100%;
+            margin-bottom: 40px; 
+            font-size: 2.5em;
+        }
+
+        .product-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            width: 300px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px; 
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .product-card h3 {
+            color: #8b4513;
+            margin-top: 0;
+        }
+
+        /* Price Display */
+        .price-selector {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .price-selector label {
+            display: block;
+            flex-grow: 1;
+            text-align: center;
+            cursor: pointer;
+            padding: 10px 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 0.9em;
+            transition: background-color 0.2s;
+        }
+
+        .price-selector input[type="radio"] {
+            display: none;
+        }
+
+        .price-selector input[type="radio"]:checked + label {
+            background-color: #d4edc4; /* Light Green Checked */
+            border-color: #006400;
+            font-weight: 600;
+        }
+
+        .cart-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: auto;
+            padding-top: 15px;
+        }
+
+        .cart-controls label {
+            font-weight: 500;
+            font-size: 0.9em;
+        }
+
+        .product-qty {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .add-to-cart-btn {
+            background-color: #006400; /* Dark Green */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #004d00;
+        }
+        
+        /* --- About Us, Footer, and Modal styles --- */
+        .about-us {
+            background-color: #e6ffe6; /* Very light green */
+            padding: 60px 5%;
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-content ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+
+        .about-content li {
+            font-weight: 600;
+            color: #006400;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9em;
+        }
+        
+        #floating-cart {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ff8c00; /* Orange */
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 1.5em;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: transform 0.2s;
+        }
+
+        #floating-cart:hover {
+            transform: scale(1.1);
+        }
+
+        #cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: red;
+            border-radius: 50%;
+            padding: 2px 7px;
+            font-size: 0.5em;
+            line-height: 1;
+            font-weight: bold;
+        }
+
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+            padding-top: 40px; /* Gives the close button space */
+        }
+
+        .close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            
+            position: absolute; 
+            top: 10px;
+            right: 10px;
+            z-index: 999999; /* Make this the highest priority layer */
+            cursor: pointer;
+            
+            /* Add a visible background */
+            width: 30px;
+            height: 30px;
+            line-height: 30px; /* Center the 'X' */
+            font-size: 20px;
+            text-align: center;
+            color: #333;
+            background-color: #f0f0f0; 
+            border-radius: 50%;
+            box-shadow: 0 0 3px rgba(0,0,0,0.2);
+        }
+
+        .close-btn:hover, .close-btn:focus {
+            color: #000;
+            text-decoration: none;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+        }
+
+        .cart-item-details {
+            flex-grow: 1;
+        }
+
+        .remove-item-btn {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 10px;
+            font-size: 0.8em;
+        }
+
+        .cart-summary {
+            border-top: 2px solid #006400;
+            padding-top: 15px;
+            margin-top: 15px;
+            text-align: right;
+            font-size: 1.2em;
+            font-weight: 700;
+        }
+
+        /* --- NEW STYLES FOR BILL REVIEW & FORMS --- */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        .submit-button {
+            width: 100%;
+            margin-top: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+
+        /* --- NEW STYLES FOR QTY BUTTONS --- */
+.quantity-input-group {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px; /* Space above 'Add to Cart' button */
+}
+
+.quantity-input-group .qty-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2em;
+    font-weight: 700;
+    line-height: 1;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    padding: 0;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.quantity-input-group .qty-btn:hover {
+    background-color: #ddd;
+}
+
+.quantity-input-group .product-qty {
+    flex-grow: 1; /* Takes up center space */
+    text-align: center;
+    border: 1px solid #ccc; /* Ensure input has a border */
+    border-radius: 0; /* Remove rounded corners on sides next to buttons */
+    height: 35px; 
+    margin: 0;
+    font-size: 1em;
+    padding: 0 5px;
+}
+
+/* Fix borders so they blend with buttons */
+.quantity-input-group .qty-btn:first-child {
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.quantity-input-group .qty-btn:last-child {
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+        .final-bill {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            max-height: 250px; /* Limit height for scroll */
+            overflow-y: auto;
+        }
+
+        .bill-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dotted #eee;
+            font-size: 0.9em;
+        }
+
+        .bill-totals {
+            border-top: 2px solid #006400;
+            padding-top: 10px;
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .bill-totals p {
+            margin: 5px 0;
+        }
+
+        .bill-totals .grand-total {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #cc5500;
+        }
+        
+        /* Secondary Button Style */
+        .secondary-button {
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .secondary-button:hover {
+            background-color: #e0e0e0;
+        }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; }
+            nav { margin-top: 10px; }
+            nav a { margin: 0 8px; }
+            .hero h1 { font-size: 2em; }
+            .product-card { width: 100%; }
+            .about-content ul { flex-direction: column; gap: 10px; }
+
+        }
+        
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">🌾 Ramiah Rice Mill Feeds</div>
+        
+        <div class="search-container">
+            <input type="text" id="product-search" placeholder="Search products by name or nutrient..." >
+        </div>
+        
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#products">Products</a>
+            <a href="#about">About Us</a>
+            <a href="#" class="cta-nav" id="open-cart-nav">View Cart</a>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        
+        <h1>Ramiah Rice Mill Feeds</h1>
+        <p>The Mill You Trust for Livestock Health.</p>
+        <br>
+        <a href="#products" class="cta-button">Explore Our Feeds</a>
+    </section>
+
+    <section id="products" class="product-grid">
+        <h2>Our Premium Cattle Feed Products</h2>
+
+        <div class="product-card" data-bag-price="1800" data-kg-price="40" data-name="White Corn"> 
+            <img src="img/White Maize.jpg" alt="White Corn">
+            <h3>வெள்ளை சோளம் (White Corn)</h3>
+            
+            <p>High-energy grain, meticulously cleaned and processed for maximum nutritional value. Ideal for dairy and beef cattle.(vellai cholam)</p>
+            
+            <div class="price-selector">
+                <input type="radio" id="corn-bag" name="corn-unit" value="bag" checked>
+                <label for="corn-bag">1 Bag (50kg) - ₹1800.00</label>
+                
+                <input type="radio" id="corn-kg" name="corn-unit" value="kg">
+                <label for="corn-kg">Bulk (per kg) - ₹40.00</label>
+            </div>
+
+            <div class="nutri-info">
+                <span class="nutri-stat">Protein: 8%</span>
+                <span class="nutri-stat">Moisture: &lt;14%</span>
+            </div>
+
+            <div class="cart-controls">
+    <label class="quantity-label" for="qty-corn-unique">Quantity (Bags):</label> 
+    <div class="quantity-input-group">
+        <button type="button" class="qty-btn" data-action="decrement" data-target="qty-corn-unique">-</button>
+        <input type="text" id="qty-corn-unique" class="product-qty" value="1" min="1" readonly>
+        <button type="button" class="qty-btn" data-action="increment" data-target="qty-corn-unique">+</button>
+        </div>
+    <button class="add-to-cart-btn">🛒 Add to Cart</button>
+        </div>
+        </div>
+
+        <div class="product-card" data-bag-price="2200" data-kg-price="48" data-name="Pearl Millet">
+            <img src="img/kambu.jpg" alt="Pearl Millet">
+            <h3> கம்பு (Pearl Millet)</h3>
+            <p>Excellent source of energy and protein, a popular choice for poultry and cattle feed formulations.(Kambu)</p>
+            
+            <div class="price-selector">
+                <input type="radio" id="millet-bag" name="millet-unit" value="bag" checked>
+                <label for="millet-bag">1 Bag (50kg) - ₹2200.00</label>
+                
+                <input type="radio" id="millet-kg" name="millet-unit" value="kg">
+                <label for="millet-kg">Bulk (per kg) - ₹48.00</label>
+            </div>
+
+            <div class="nutri-info">
+                <span class="nutri-stat">Protein: 11%</span>
+                <span class="nutri-stat">Fiber: 2.5%</span>
+            </div>
+
+             <div class="cart-controls">
+    <label class="quantity-label" for="qty-millet-unique">Quantity (Bags):</label> 
+    <div class="quantity-input-group">
+        <button type="button" class="qty-btn" data-action="decrement" data-target="qty-millet-unique">-</button>
+        <input type="text" id="qty-millet-unique" class="product-qty" value="1" min="1" readonly>
+        <button type="button" class="qty-btn" data-action="increment" data-target="qty-millet-unique">+</button>
+        </div>
+    <button class="add-to-cart-btn">🛒 Add to Cart</button>
+        </div>
+        </div>
+
+        
+
+        <div class="product-card" data-bag-price="750" data-kg-price="15" data-name="Rice Bran">
+            <img src="img/thavidu.png" alt="Rice Bran">
+            <h3>நெல் தவிடு (Rice Bran)</h3>
+            <p>A highly nutritious and cost-effective rice milling byproduct, excellent for enhancing feed digestibility and fat content.(Nel Thavidu)</p>
+            
+            <div class="price-selector">
+                <input type="radio" id="bran-bag" name="bran-unit" value="bag" checked>
+                <label for="bran-bag">1 Bag (50kg) - ₹750.00</label>
+                
+                <input type="radio" id="bran-kg" name="bran-unit" value="kg">
+                <label for="bran-kg">Bulk (per kg) - ₹15.00</label>
+            </div>
+
+            <div class="nutri-info">
+                <span class="nutri-stat">Fat: 12%</span>
+                <span class="nutri-stat">Fiber: 10%</span>
+            </div>
+
+             <div class="cart-controls">
+    <label class="quantity-label" for="qty-bran-unique">Quantity (Bags):</label> 
+    <div class="quantity-input-group">
+        <button type="button" class="qty-btn" data-action="decrement" data-target="qty-bran-unique">-</button>
+        <input type="text" id="qty-bran-unique" class="product-qty" value="1" min="1" readonly>
+        <button type="button" class="qty-btn" data-action="increment" data-target="qty-bran-unique">+</button>
+        </div>
+    <button class="add-to-cart-btn">🛒 Add to Cart</button>
+        </div>
+        </div>
+
+        
+
+        <div class="product-card" data-bag-price="2500" data-kg-price="55" data-name="Peanut Oil Cake">
+            <img src="img/kadala.png" alt="Peanut Oil Cake">
+            <h3>கடலை புண்ணாக்கு (Peanut Oil Cake)</h3>
+            <p>An excellent source of natural protein and energy, widely used as a primary supplement for lactating dairy cattle.(Kadalai Punnakku)</p>
+            
+            <div class="price-selector">
+                <input type="radio" id="groundnut-bag" name="groundnut-unit" value="bag" checked>
+                <label for="groundnut-bag">1 Bag (50kg) - ₹2500.00</label>
+                
+                <input type="radio" id="groundnut-kg" name="groundnut-unit" value="kg">
+                <label for="groundnut-kg">Bulk (per kg) - ₹55.00</label>
+            </div>
+
+            <div class="nutri-info">
+                <span class="nutri-stat">Protein: 40%</span>
+                <span class="nutri-stat">Fiber: 6%</span>
+            </div>
+
+             <div class="cart-controls">
+    <label class="quantity-label" for="qty-groundnut-unique">Quantity (Bags):</label> 
+    <div class="quantity-input-group">
+        <button type="button" class="qty-btn" data-action="decrement" data-target="qty-groundnut-unique">-</button>
+        <input type="text" id="qty-groundnut-unique" class="product-qty" value="1" min="1" readonly>
+        <button type="button" class="qty-btn" data-action="increment" data-target="qty-groundnut-unique">+</button>
+        </div>
+    <button class="add-to-cart-btn">🛒 Add to Cart</button>
+        </div>
+        </div>
+        
+        
+
+        
+
+        <div class="product-card" data-bag-price="2800" data-kg-price="60" data-name="Sesame Oil Cake">
+            <img src="img/ellu.png" alt="Sesame Oil Cake">
+            <h3>எள்ளு புண்ணாக்கு (Sesame Oil Cake)</h3>
+            <p>A highly palatable feed rich in crude protein and essential minerals, beneficial for maintaining milk yield and quality.(Ellu Punnakku)</p>
+            
+            <div class="price-selector">
+                <input type="radio" id="sesame-bag" name="sesame-unit" value="bag" checked>
+                <label for="sesame-bag">1 Bag (50kg) - ₹2800.00</label>
+                
+                <input type="radio" id="sesame-kg" name="sesame-unit" value="kg">
+                <label for="sesame-kg">Bulk (per kg) - ₹60.00</label>
+            </div>
+
+            <div class="nutri-info">
+                <span class="nutri-stat">Protein: 42%</span>
+                <span class="nutri-stat">Fat: 8%</span>
+            </div>
+
+             <div class="cart-controls">
+    <label class="quantity-label" for="qty-sesame-unique">Quantity (Bags):</label> 
+    <div class="quantity-input-group">
+        <button type="button" class="qty-btn" data-action="decrement" data-target="qty-sesame-unique">-</button>
+        <input type="text" id="qty-sesame-unique" class="product-qty" value="1" min="1" readonly>
+        <button type="button" class="qty-btn" data-action="increment" data-target="qty-sesame-unique">+</button>
+        </div>
+    <button class="add-to-cart-btn">🛒 Add to Cart</button>
+        </div>
+        </div>
+
+        
+
+        <div class="product-card" data-bag-price="3500" data-kg-price="75" data-name="Mung Bean Powder">
+            <img src="img/pasiparuppu.png" alt="Mung Bean Powder">
+            <h3>பாசி பருப்பு தூசி (mung bean powder)</h3>
+            <p>High-quality, digestible protein supplement often used to enhance growth rates and overall health in young and adult livestock.(Pasi paruppu thoosi)</p>
+            
+            <div class="price-selector">
+                <input type="radio" id="mung-bag" name="mung-unit" value="bag" checked>
+                <label for="mung-bag">1 Bag (50kg) - ₹3500.00</label>
+                
+                <input type="radio" id="mung-kg" name="mung-unit" value="kg">
+                <label for="mung-kg">Bulk (per kg) - ₹75.00</label>
+            </div>
+
+            <div class="nutri-info">
+                <span class="nutri-stat">Protein: 24%</span>
+                <span class="nutri-stat">Fiber: 4%</span>
+            </div>
+
+             <div class="cart-controls">
+    <label class="quantity-label" for="qty-mung-unique">Quantity (Bags):</label> 
+    <div class="quantity-input-group">
+        <button type="button" class="qty-btn" data-action="decrement" data-target="qty-mung-unique">-</button>
+        <input type="text" id="qty-mung-unique" class="product-qty" value="1" min="1" readonly>
+        <button type="button" class="qty-btn" data-action="increment" data-target="qty-mung-unique">+</button>
+        </div>
+    <button class="add-to-cart-btn">🛒 Add to Cart</button>
+        </div>
+        </div>
+        
+        <div class="product-card" data-bag-price="1500" data-kg-price="30" data-name="Black Gram Dust">
+            <img src="img/uluntham.jpg" alt="Black Gram Dust">
+            <h3>உளுந்தம் பருப்பு தூசி(Black gram dust)</h3>
+            <p>Highly palatable and protein-rich byproduct, widely recognized for boosting lactation and providing essential energy to livestock.(Uluntham paruppu Thoosi)</p>
+            
+            <div class="price-selector">
+                <input type="radio" id="black-gram-bag" name="black-gram-unit" value="bag" checked>
+                <label for="black-gram-bag">1 Bag (50kg) - ₹1500.00</label>
+                
+                <input type="radio" id="black-gram-kg" name="black-gram-unit" value="kg">
+                <label for="black-gram-kg">Bulk (per kg) - ₹30.00</label>
+            </div>
+
+            <div class="nutri-info">
+                <span class="nutri-stat">Protein: 25%</span>
+                <span class="nutri-stat">Digestible: High</span>
+            </div>
+
+             <div class="cart-controls">
+    <label class="quantity-label" for="qty-blackgram-unique">Quantity (Bags):</label> 
+    <div class="quantity-input-group">
+        <button type="button" class="qty-btn" data-action="decrement" data-target="qty-blackgram-unique">-</button>
+        <input type="text" id="qty-blackgram-unique" class="product-qty" value="1" min="1" readonly>
+        <button type="button" class="qty-btn" data-action="increment" data-target="qty-blackgram-unique">+</button>
+        </div>
+    <button class="add-to-cart-btn">🛒 Add to Cart</button>
+        </div>
+        </div>
+
+        <div class="product-card" data-bag-price="1400" data-kg-price="28" data-name="Toor Dal Dust">
+            <img src="img/thuvaram.jpg" alt="Toor Dal Dust">
+            <h3>துவாரம் பருப்பு தூசி (toor dal dust)</h3>
+            <p>A cost-effective, easily digestible protein source used to enrich cattle and poultry feed for improved nutrition.(Thuvaram Paruppu Thoosi)</p>
+            
+            <div class="price-selector">
+                <input type="radio" id="toor-bag" name="toor-unit" value="bag" checked>
+                <label for="toor-bag">1 Bag (50kg) - ₹1400.00</label>
+                
+                <input type="radio" id="toor-kg" name="toor-unit" value="kg">
+                <label for="toor-kg">Bulk (per kg) - ₹28.00</label>
+            </div>
+
+            <div class="nutri-info">
+                <span class="nutri-stat">Protein: 21%</span>
+                <span class="nutri-stat">Fibre: Low</span>
+            </div>
+
+             <div class="cart-controls">
+    <label class="quantity-label" for="qty-toor-unique">Quantity (Bags):</label> 
+    <div class="quantity-input-group">
+        <button type="button" class="qty-btn" data-action="decrement" data-target="qty-toor-unique">-</button>
+        <input type="text" id="qty-toor-unique" class="product-qty" value="1" min="1" readonly>
+        <button type="button" class="qty-btn" data-action="increment" data-target="qty-toor-unique">+</button>
+        </div>
+    <button class="add-to-cart-btn">🛒 Add to Cart</button>
+        </div>
+        </div>
+        
+        <div class="product-card" data-bag-price="2000" data-kg-price="42" data-name="High-Protein Maize">
+            <img src="img/maize.jpg" alt="High-Protein Maize">
+            <h3>மக்காச்சோளம் (Maize)</h3>
+            <p>A specialized maize variety with elevated protein levels, providing superior nutritional density for high-performance livestock.(Makka cholam/Muthu cholam)</p>
+            
+            <div class="price-selector">
+                <input type="radio" id="hpm-bag" name="hpm-unit" value="bag" checked>
+                <label for="hpm-bag">1 Bag (50kg) - ₹2000.00</label>
+                
+                <input type="radio" id="hpm-kg" name="hpm-unit" value="kg">
+                <label for="hpm-kg">Bulk (per kg) - ₹42.00</label>
+            </div>
+
+            <div class="nutri-info">
+                <span class="nutri-stat">Protein: 12%</span>
+                <span class="nutri-stat">Lysine: High</span>
+            </div>
+
+             <div class="cart-controls">
+    <label class="quantity-label" for="qty-hpm-unique">Quantity (Bags):</label> 
+    <div class="quantity-input-group">
+        <button type="button" class="qty-btn" data-action="decrement" data-target="qty-hpm-unique">-</button>
+        <input type="text" id="qty-hpm-unique" class="product-qty" value="1" min="1" readonly>
+        <button type="button" class="qty-btn" data-action="increment" data-target="qty-hpm-unique">+</button>
+        </div>
+    <button class="add-to-cart-btn">🛒 Add to Cart</button>
+        </div>
+        </div>
+
+        <div class="product-card" data-bag-price="850" data-kg-price="17" data-name="Wheat Bran">
+            <img src="img/wheat.png" alt="Wheat Bran">
+            <h3>கோதுமை தவிடு (Wheat Bran)</h3>
+            <p>Excellent source of dietary fiber, promoting healthy digestion and used as a bulk ingredient to mix into other high-density feeds.(Kodhumai Thavidu)</p>
+            
+            <div class="price-selector">
+                <input type="radio" id="wheat-bran-bag" name="wheat-bran-unit" value="bag" checked>
+                <label for="wheat-bran-bag">1 Bag (50kg) - ₹850.00</label>
+                
+                <input type="radio" id="wheat-bran-kg" name="wheat-bran-unit" value="kg">
+                <label for="wheat-bran-kg">Bulk (per kg) - ₹17.00</label>
+            </div>
+
+            <div class="nutri-info">
+                <span class="nutri-stat">Fiber: 10%</span>
+                <span class="nutri-stat">Protein: 15%</span>
+            </div>
+
+            <div class="cart-controls">
+    <label class="quantity-label" for="qty-wheat-bran-unique">Quantity (Bags):</label> 
+    <div class="quantity-input-group">
+        <button type="button" class="qty-btn" data-action="decrement" data-target="qty-wheat-bran-unique">-</button>
+        <input type="text" id="qty-wheat-bran-unique" class="product-qty" value="1" min="1" readonly>
+        <button type="button" class="qty-btn" data-action="increment" data-target="qty-wheat-bran-unique">+</button>
+        </div>
+    <button class="add-to-cart-btn">🛒 Add to Cart</button>
+        </div>
+        </div>
+        
+        <div class="product-card" data-bag-price="1300" data-kg-price="26" data-name="Compound Cattle Feed">
+            <img src="img/kuchchi.jpg" alt="Compound Cattle Feed">
+            <h3> குச்சி தீவனம் (Cattle Feed)</h3>
+            <p>A highly palatable and scientifically balanced feed designed to meet the complete nutritional needs for maintenance and milk production.(Kuchi Theevanam)</p>
+            
+            <div class="price-selector">
+                <input type="radio" id="compound-feed-bag" name="compound-feed-unit" value="bag" checked>
+                <label for="compound-feed-bag">1 Bag (50kg) - ₹1300.00</label>
+                
+                <input type="radio" id="compound-feed-kg" name="compound-feed-unit" value="kg">
+                <label for="compound-feed-kg">Bulk (per kg) - ₹26.00</label>
+            </div>
+
+            <div class="nutri-info">
+                <span class="nutri-stat">Protein: 18%</span>
+                <span class="nutri-stat">TDN: High</span>
+            </div>
+
+             <div class="cart-controls">
+    <label class="quantity-label" for="qty-compound-feed-unique">Quantity (Bags):</label> 
+    <div class="quantity-input-group">
+        <button type="button" class="qty-btn" data-action="decrement" data-target="qty-compound-feed-unique">-</button>
+        <input type="text" id="qty-compound-feed-unique" class="product-qty" value="1" min="1" readonly>
+        <button type="button" class="qty-btn" data-action="increment" data-target="qty-compound-feed-unique">+</button>
+        </div>
+    <button class="add-to-cart-btn">🛒 Add to Cart</button>
+        </div>
+        </div>
+
+        <div class="product-card" data-bag-price="1500" data-kg-price="30" data-name="Raw Cotton Seeds">
+            <img src="img/paruthi.png" alt="Raw Cotton Seeds">
+            <h3>பருத்தி (Raw Cotton Seeds)</h3>
+            <p>An excellent source of bypass fat and fiber, providing concentrated energy for high-yielding dairy cattle.(Paruthi)</p>
+            
+            <div class="price-selector">
+                <input type="radio" id="cotton-seed-bag" name="cotton-seed-unit" value="bag" checked>
+                <label for="cotton-seed-bag">1 Bag (50kg) - ₹1500.00</label>
+                
+                <input type="radio" id="cotton-seed-kg" name="cotton-seed-unit" value="kg">
+                <label for="cotton-seed-kg">Bulk (per kg) - ₹30.00</label>
+            </div>
+
+            <div class="nutri-info">
+                <span class="nutri-stat">Oil: 20%</span>
+                <span class="nutri-stat">Fiber: 25%</span>
+            </div>
+ <div class="cart-controls">
+    <label class="quantity-label" for="qty-cotton-seed-unique">Quantity (Bags):</label> 
+    <div class="quantity-input-group">
+        <button type="button" class="qty-btn" data-action="decrement" data-target="qty-cotton-seed-unique">-</button>
+        <input type="text" id="qty-cotton-seed-unique" class="product-qty" value="1" min="1" readonly>
+        <button type="button" class="qty-btn" data-action="increment" data-target="qty-cotton-seed-unique">+</button>
+        </div>
+    <button class="add-to-cart-btn">🛒 Add to Cart</button>
+        </div>
+        </div>
+
+        
+
+        <div class="product-card" data-bag-price="4000" data-kg-price="80" data-name="Urad Dal">
+            <img src="img/ulunthu.jpg" alt="Urad Dal">
+            <h3>உளுந்தம் பருப்பு (Urad Dal)</h3>
+            <p>A highly concentrated source of vegetable protein, valued for its ability to improve digestion and boost energy in animal feed formulations.(Uluntham Paruppu)</p>
+            
+            <div class="price-selector">
+                <input type="radio" id="urad-dal-bag" name="urad-dal-unit" value="bag" checked>
+                <label for="urad-dal-bag">1 Bag (50kg) - ₹4000.00</label>
+                
+                <input type="radio" id="urad-dal-kg" name="urad-dal-unit" value="kg">
+                <label for="urad-dal-kg">Bulk (per kg) - ₹80.00</label>
+            </div>
+
+            <div class="nutri-info">
+                <span class="nutri-stat">Protein: 25%</span>
+                <span class="nutri-stat">Fats: Low</span>
+            </div>
+
+            <div class="cart-controls">
+                <label class="quantity-label" for="qty-urad-dal-unique">Quantity (Bags):</label> 
+                <div class="quantity-input-group">
+                    <button type="button" class="qty-btn" data-action="decrement" data-target="qty-urad-dal-unique">-</button>
+                    <input type="text" id="qty-urad-dal-unique" class="product-qty" value="1" min="1" readonly>
+                    <button type="button" class="qty-btn" data-action="increment" data-target="qty-urad-dal-unique">+</button>
+                </div>
+                <button class="add-to-cart-btn">🛒 Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-bag-price="4500" data-kg-price="90" data-name="Fenugreek Seeds">
+            <img src="img/venthayam.png" alt="Fenugreek Seeds">
+            <h3>வெந்தயம் (Fenugreek Seeds)</h3>
+            <p>Known to stimulate appetite and improve digestion; used as a supplement to enhance overall gut health in livestock.(Venthayam)</p>
+            
+            <div class="price-selector">
+                <input type="radio" id="fenugreek-bag" name="fenugreek-unit" value="bag" checked>
+                <label for="fenugreek-bag">1 Bag (50kg) - ₹4500.00</label>
+                
+                <input type="radio" id="fenugreek-kg" name="fenugreek-unit" value="kg">
+                <label for="fenugreek-kg">Bulk (per kg) - ₹90.00</label>
+            </div>
+
+            <div class="nutri-info">
+                <span class="nutri-stat">Protein: 23%</span>
+                <span class="nutri-stat">Digestive: Good</span>
+            </div>
+
+             <div class="cart-controls">
+    <label class="quantity-label" for="qty-fenugreek-unique">Quantity (Bags):</label> 
+    <div class="quantity-input-group">
+        <button type="button" class="qty-btn" data-action="decrement" data-target="qty-fenugreek-unique">-</button>
+        <input type="text" id="qty-fenugreek-unique" class="product-qty" value="1" min="1" readonly>
+        <button type="button" class="qty-btn" data-action="increment" data-target="qty-fenugreek-unique">+</button>
+        </div>
+    <button class="add-to-cart-btn">🛒 Add to Cart</button>
+        </div>
+        </div>
+
+        <div class="product-card" data-bag-price="1000" data-kg-price="20" data-name="Balanced Fodder Mix">
+            <img src="img/mix.png" alt="Balanced Fodder Mix">
+            <h3>கலப்பு தீவனம் (Balanced Fodder Mix)</h3>
+            <p>A ready-to-feed blend of forage, grains, and supplements, ensuring complete and consistent nutrition for general herd health.(Kalappu Theevanam)</p>
+            
+            <div class="price-selector">
+                <input type="radio" id="fodder-mix-bag" name="fodder-mix-unit" value="bag" checked>
+                <label for="fodder-mix-bag">1 Bag (50kg) - ₹1000.00</label>
+                
+                <input type="radio" id="fodder-mix-kg" name="fodder-mix-unit" value="kg">
+                <label for="fodder-mix-kg">Bulk (per kg) - ₹20.00</label>
+            </div>
+
+            <div class="nutri-info">
+                <span class="nutri-stat">Protein: 14%</span>
+                <span class="nutri-stat">Fiber: 18%</span>
+            </div>
+
+             <div class="cart-controls">
+    <label class="quantity-label" for="qty-fodder-mix-unique">Quantity (Bags):</label> 
+    <div class="quantity-input-group">
+        <button type="button" class="qty-btn" data-action="decrement" data-target="qty-fodder-mix-unique">-</button>
+        <input type="text" id="qty-fodder-mix-unique" class="product-qty" value="1" min="1" readonly>
+        <button type="button" class="qty-btn" data-action="increment" data-target="qty-fodder-mix-unique">+</button>
+        </div>
+    <button class="add-to-cart-btn">🛒 Add to Cart</button>
+        </div>
+        </div>
+        
+    </section>
+
+    <section id="about" class="about-us">
+        <h2>Our Commitment to Quality</h2>
+        <div class="about-content">
+            <p>Founded on decades of experience in the rice milling industry, we bring the same commitment to excellence to our cattle feed division. We control the process from sourcing to packaging, ensuring you receive the cleanest, highest-grade feed.</p>
+            <ul>
+                <li>✅ Decades of Milling Experience</li>
+                <li>✅ Rigorous Quality Control</li>
+                <li>✅ Reliable Bulk Supply</li>
+                
+            </ul>
+            <P>India, TamilNadu, Madurai, Melur, Saruguvalayapatti</P>
+                <p> Contact: thinkgood24hrs@gmail.com |+91 9585672658 | +91 8098106678  </p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Ramiah Rice Mill Feeds. All Rights Reserved. </p>
+    </footer>
+
+    <div id="floating-cart">
+        🛒 <span id="cart-count">0</span>
+    </div>
+
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" data-action="close-modal">X</span>
+            <h2 id="modal-title">Your Order Summary</h2>
+
+            <div id="cart-summary-view">
+                <div id="cart-items-container">
+                    <p id="empty-cart-message">Your cart is empty. Add some feed!</p>
+                </div>
+                <div class="cart-summary">
+                    <p>Subtotal: <span id="cart-subtotal">₹0.00</span></p>
+                    <button id="proceed-to-bill-btn" class="cta-button" disabled>Review Final Bill</button>
+                </div>
+            </div>
+            
+            <div id="bill-review-view" style="display:none; padding-top: 15px;">
+                <h3>Final Order Bill</h3>
+                <div id="final-bill-details" class="final-bill">
+                    </div>
+                <div class="bill-totals">
+                    <p>Subtotal: <span id="bill-subtotal">₹0.00</span></p>
+                    <p class="grand-total">Grand Total: <span id="bill-grand-total">₹0.00</span></p>
+                </div>
+                
+                <button id="bill-back-btn" class="secondary-button" style="width: 48%; float: left;">← Back to Cart</button>
+                <button id="proceed-to-contact-btn" class="cta-button" style="width: 48%; float: right;">Continue to Contact Details →</button>
+                <div style="clear:both;"></div>
+            </div>
+
+            <div id="order-form-view" style="display:none; padding-top: 15px;">
+                <h3>Your Contact Information</h3>
+                <p>Please provide your contact information to finalize your order inquiry. We will call you to confirm delivery details.</p>
+                
+                <form action="" method="POST" id="checkout-form"> 
+                    <div class="form-group">
+                        <label for="customer_name">Your Name:</label>
+                        <input type="text" id="customer_name" name="entry.103099042" required> 
+                    </div>
+                    <div class="form-group">
+                        <label for="village_name">City/Village Name:</label>
+                        <input type="text" id="village_name" name="entry.1802952520" required> 
+                    </div>
+                    
+                    
+                    
+                    <div class="form-group">
+                        <label for="customer_phone">Phone Number:</label>
+                        <input type="tel" id="customer_phone" name="entry.279624838" required>
+                    </div>
+                    
+                    <input type="hidden" name="entry.206495267" id="order_data_json"> 
+                    <input type="hidden" name="entry.1481102927" id="final_total">
+
+                    <button id="form-back-btn" class="secondary-button" style="width: 48%; float: left;">← Back to Bill</button>
+                    <button type="submit" class="cta-button submit-button" style="width: 48%; float: right;">Submit Order Inquiry</button>
+                    <div style="clear:both;"></div>
+                </form>
+                <p id="order-message" style="margin-top: 15px; color: green; font-weight: bold; display: none;">✅ Inquiry Submitted Successfully!</p>
+            </div>
+            
+        </div>
+    </div>
+   <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        let cart = [];
+        
+        // ====================================================================
+        // !!! CRITICAL: PASTE YOUR ACTIVE GOOGLE APPS SCRIPT URL HERE !!!
+        // ====================================================================
+        const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzckCZbk6eaBegc767buAmmG594ipZy5MoB4TTTEIDhk9czJT4EalRZJPvpevYGmHJ9SQ/exec"; 
+        
+        // --- DOM Elements ---
+        const cartIcon = document.getElementById('floating-cart');
+        const navCartLink = document.getElementById('open-cart-nav');
+        const cartModal = document.getElementById('cart-modal');
+        
+        // FIX: Target the close button element correctly
+        const closeBtn = document.querySelector('.close-btn'); 
+        
+        const cartCount = document.getElementById('cart-count');
+        const cartItemsContainer = document.getElementById('cart-items-container');
+        const cartSubtotal = document.getElementById('cart-subtotal');
+        const emptyMessage = document.getElementById('empty-cart-message');
+
+        // --- NEW ELEMENTS FOR 3-STEP FLOW ---
+        const cartSummaryView = document.getElementById('cart-summary-view');
+        const billReviewView = document.getElementById('bill-review-view');
+        const orderFormView = document.getElementById('order-form-view');
+        const proceedToBillBtn = document.getElementById('proceed-to-bill-btn');
+        const proceedToContactBtn = document.getElementById('proceed-to-contact-btn');
+        const billBackBtn = document.getElementById('bill-back-btn');
+        const formBackBtn = document.getElementById('form-back-btn');
+        const finalBillDetails = document.getElementById('final-bill-details');
+        const billSubtotal = document.getElementById('bill-subtotal');
+        const billGrandTotal = document.getElementById('bill-grand-total');
+        const orderDataJsonInput = document.getElementById('order_data_json');
+        const finalTotalInput = document.getElementById('final_total');
+        const checkoutForm = document.getElementById('checkout-form');
+        const orderMessage = document.getElementById('order-message');
+        const modalTitle = document.getElementById('modal-title');
+        
+        // SEARCH ELEMENT
+        const searchInput = document.getElementById('product-search');
+
+        // --- VIEW MANAGEMENT FUNCTIONS ---
+        function closeModal() {
+            cartModal.style.display = 'none';
+        }
+        
+        function filterProducts() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const productCards = document.querySelectorAll('.product-card');
+
+            productCards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+                const nutriInfo = card.querySelector('.nutri-info').textContent.toLowerCase();
+                const searchableText = title + ' ' + description + ' ' + nutriInfo;
+
+                if (searchableText.includes(searchTerm)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+        
+        function handleUnitChange(event) {
+            const card = event.target.closest('.product-card');
+            const selectedUnit = event.target.value;
+            const quantityLabel = card.querySelector('.quantity-label');
+            const quantityInput = card.querySelector('.product-qty');
+
+            if (selectedUnit === 'bag') {
+                quantityLabel.textContent = 'Quantity (Bags):';
+                quantityInput.setAttribute('min', '1');
+                quantityInput.value = 1;
+            } else if (selectedUnit === 'kg') {
+                quantityLabel.textContent = 'Quantity (Kilograms):';
+                quantityInput.setAttribute('min', '1');
+                quantityInput.value = 1;
+            }
+        }
+
+        function handleAddToCart(event) {
+            const card = event.target.closest('.product-card');
+            const name = card.getAttribute('data-name'); // Use the data-name attribute for reliable product naming
+            const selectedRadio = card.querySelector('input[type="radio"]:checked');
+            const unit = selectedRadio.value;
+            
+            let price, unitName;
+
+            if (unit === 'bag') {
+                price = parseFloat(card.getAttribute('data-bag-price'));
+                unitName = 'Bags (50kg)';
+            } else {
+                price = parseFloat(card.getAttribute('data-kg-price'));
+                unitName = 'Kgs';
+            }
+
+            const quantityInput = card.querySelector('.product-qty');
+            const quantity = parseFloat(quantityInput.value);
+
+            if (isNaN(quantity) || quantity <= 0) {
+                alert('Please enter a valid quantity.');
+                return;
+            }
+            
+            const itemID = `${name.replace(/\s/g, '')}_${unit}`;
+
+            const existingItemIndex = cart.findIndex(item => item.id === itemID);
+
+            if (existingItemIndex > -1) {
+                // Ensure to parse the current input value as float/integer
+                cart[existingItemIndex].qty += quantity;
+            } else {
+                cart.push({ 
+                    id: itemID, 
+                    name: `${name}`, // Simplified name for bill
+                    price, 
+                    qty: quantity,
+                    unit: unitName
+                });
+            }
+
+            updateCartDisplay();
+            quantityInput.value = 1; 
+            
+            event.target.textContent = '✅ Added!';
+            setTimeout(() => {
+                event.target.textContent = '🛒 Add to Cart';
+            }, 1000);
+        }
+        
+        function handleQuantityControl(event) {
+            const button = event.target;
+            const action = button.getAttribute('data-action');
+            const targetId = button.getAttribute('data-target');
+            const quantityInput = document.getElementById(targetId);
+            
+            if (!quantityInput) return;
+
+            let currentValue = parseInt(quantityInput.value) || 1;
+            const min = parseInt(quantityInput.getAttribute('min')) || 1;
+
+            if (action === 'increment') {
+                currentValue += 1;
+            } else if (action === 'decrement' && currentValue > min) {
+                currentValue -= 1;
+            }
+            
+            quantityInput.value = currentValue;
+        }
+
+        function handleRemoveItem(event) {
+            const productId = event.target.getAttribute('data-id');
+            cart = cart.filter(item => item.id !== productId);
+            updateCartDisplay();
+        }
+
+        function updateCartDisplay() {
+            // Recalculate cart count based on unique items in cart array
+            cartCount.textContent = cart.length; 
+            
+            cartItemsContainer.innerHTML = '';
+            let subtotal = 0;
+
+            if (cart.length === 0) {
+                emptyMessage.style.display = 'block';
+                proceedToBillBtn.disabled = true; 
+                
+                cartSummaryView.style.display = 'block';
+                billReviewView.style.display = 'none';
+                orderFormView.style.display = 'none';
+                modalTitle.textContent = 'Your Order Summary';
+            } else {
+                emptyMessage.style.display = 'none';
+                proceedToBillBtn.disabled = false;
+
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.qty;
+                    subtotal += itemTotal;
+
+                    const itemHTML = `
+                        <div class="cart-item">
+                            <div class="cart-item-details">
+                                <strong>${item.name}</strong> 
+                                <br>
+                                ${item.qty} ${item.unit} @ ₹${item.price.toFixed(2)} per unit
+                            </div>
+                            <strong>₹${itemTotal.toFixed(2)}</strong>
+                            <button class="remove-item-btn" data-id="${item.id}">Remove</button>
+                        </div>
+                    `;
+                    cartItemsContainer.insertAdjacentHTML('beforeend', itemHTML);
+                    
+                });
+                // Attach event listeners to newly created remove buttons
+                document.querySelectorAll('.remove-item-btn').forEach(btn => {
+                    btn.addEventListener('click', handleRemoveItem);
+                });
+                
+                cartSubtotal.textContent = `₹${subtotal.toFixed(2)}`;
+            }
+        }
+        
+        function updateBillReview() {
+            finalBillDetails.innerHTML = '';
+            let total = 0;
+            
+            if (cart.length === 0) return 0;
+
+            cart.forEach(item => {
+                const itemTotal = item.price * item.qty;
+                total += itemTotal;
+
+                const itemHTML = `
+                    <div class="bill-item">
+                        <span>${item.name} (${item.qty} ${item.unit} @ ₹${item.price.toFixed(2)}/unit)</span>
+                        <strong>₹${itemTotal.toFixed(2)}</strong>
+                    </div>
+                `;
+                finalBillDetails.insertAdjacentHTML('beforeend', itemHTML);
+            });
+
+            billSubtotal.textContent = `₹${total.toFixed(2)}`;
+            billGrandTotal.textContent = `₹${total.toFixed(2)}`;
+            
+            return total;
+        }
+
+        function openModal(e) {
+            e.preventDefault();
+            // Always revert to the cart summary view when opening the modal
+            cartSummaryView.style.display = 'block';
+            billReviewView.style.display = 'none';
+            orderFormView.style.display = 'none';
+            modalTitle.textContent = 'Your Order Summary';
+            
+            updateCartDisplay();
+            cartModal.style.display = 'block';
+        }
+
+
+        // --- Event Listeners and Initialization ---
+        
+        // Attach listener to cart icon and nav link
+        cartIcon.addEventListener('click', openModal);
+        navCartLink.addEventListener('click', openModal);
+
+        // Attach listener to close button
+        if (closeBtn) {
+             closeBtn.addEventListener('click', closeModal); 
+        }
+        
+        // Listener for the dark background and also ensures the close button is caught even if overlapped
+        window.addEventListener('click', (event) => { 
+            // If the modal background is clicked
+            if (event.target == cartModal) {
+                closeModal();
+            }
+            // If the close button or any child of it is clicked (The robust fix)
+            const clickedDismiss = event.target.closest('.close-btn');
+            if (clickedDismiss) {
+                closeModal();
+            }
+        });
+        
+        // Listener to scroll page AND filter products
+        if (searchInput) {
+            searchInput.addEventListener('click', () => {
+                const productsSection = document.getElementById('products');
+                if (productsSection) {
+                    productsSection.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'start' 
+                    });
+                }
+            });
+            searchInput.addEventListener('keyup', filterProducts);
+            searchInput.addEventListener('change', filterProducts); 
+        }
+        
+        // Attach listeners to all product card controls
+        document.querySelectorAll('.product-card').forEach(card => {
+            // 1. Add to Cart Button
+            const addToCartBtn = card.querySelector('.add-to-cart-btn');
+            if(addToCartBtn) {
+                addToCartBtn.addEventListener('click', handleAddToCart);
+            }
+            
+            // 2. Unit Select Radio Buttons
+            card.querySelectorAll('.price-selector input[type="radio"]').forEach(radio => {
+                radio.addEventListener('change', handleUnitChange);
+            });
+            
+            // 3. Quantity + and - Buttons
+            card.querySelectorAll('.qty-btn').forEach(button => {
+                button.addEventListener('click', handleQuantityControl);
+            });
+            
+            // Set initial quantity label text
+            const initialRadio = card.querySelector('input[type="radio"]:checked');
+            if(initialRadio) {
+                handleUnitChange({ target: initialRadio });
+            }
+        });
+
+        // 1. CART VIEW -> BILL VIEW
+        proceedToBillBtn.addEventListener('click', () => {
+            const total = updateBillReview(); 
+            orderDataJsonInput.value = JSON.stringify(cart, null, 2);
+            finalTotalInput.value = total.toFixed(2);
+            cartSummaryView.style.display = 'none';
+            billReviewView.style.display = 'block';
+            modalTitle.textContent = 'Final Order Bill';
+        });
+        
+        // 2. BILL VIEW -> CONTACT FORM VIEW
+        proceedToContactBtn.addEventListener('click', () => {
+            billReviewView.style.display = 'none';
+            orderFormView.style.display = 'block';
+            modalTitle.textContent = 'Submit Inquiry';
+        });
+
+        // BILL VIEW <- CONTACT FORM VIEW
+        formBackBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            orderFormView.style.display = 'none';
+            billReviewView.style.display = 'block';
+            modalTitle.textContent = 'Final Order Bill';
+        });
+
+        // CART VIEW <- BILL VIEW
+        billBackBtn.addEventListener('click', () => {
+            billReviewView.style.display = 'none';
+            cartSummaryView.style.display = 'block';
+            modalTitle.textContent = 'Your Order Summary';
+        });
+        
+        // Final Form Submission (Apps Script Backend Submission)
+        checkoutForm.addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            // Hide form and show message
+            orderFormView.style.display = 'none';
+            orderMessage.textContent = 'Submitting order, please wait...';
+            orderMessage.style.display = 'block';
+            
+            // Clear cart immediately upon submission attempt
+            cart = [];
+            updateCartDisplay();
+            
+            const formData = new FormData(checkoutForm);
+            const searchParams = new URLSearchParams();
+            for (const pair of formData) {
+                searchParams.append(pair[0], pair[1]);
+            }
+
+            fetch(APPS_SCRIPT_URL, {
+                method: 'POST',
+                body: searchParams 
+            })
+            .then(response => {
+                // Assuming successful submission for a standard fetch, if APPS_SCRIPT_URL is valid
+                orderMessage.textContent = '✅ Inquiry Submitted Successfully! Please call to confirm.';
+                orderMessage.style.color = 'green';
+                
+                // You can close the modal here or leave it open with the success message
+                setTimeout(closeModal, 3000); 
+            })
+            .catch(error => {
+                console.error('Final Submission Error:', error);
+                orderMessage.textContent = `❌ Submission Failed! Check internet or Apps Script URL. Error: ${error.message}`;
+                orderMessage.style.color = 'red';
+                // Revert to form or show error in form view
+                orderFormView.style.display = 'block'; 
+            });
+        });
+        
+        // Initialize on load
+        updateCartDisplay();
+    });
+</script>
+</body>
+</html>
