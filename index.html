@@ -255,9 +255,6 @@
         .add-to-cart-btn:hover {
             background-color: #004d00;
         }
-
-
-        
         
         /* --- About Us, Footer, and Modal styles --- */
         .about-us {
@@ -561,7 +558,7 @@
             <a href="#home">Home</a>
             <a href="#products">Products</a>
             <a href="#about">About Us</a>
-           <!--<a href="#" class="cta-nav" id="open-cart-nav">View Cart</a>-->
+            <a href="#" class="cta-nav" id="open-cart-nav">View Cart</a>
         </nav>
     </header>
 
@@ -1064,7 +1061,7 @@
             </div>
             
             <div id="bill-review-view" style="display:none; padding-top: 15px;">
-                <h3>Final Order Bill</h3>
+                <!--<h3>Final Order Bill</h3>-->
                 <div id="final-bill-details" class="final-bill">
                     </div>
                 <div class="bill-totals">
@@ -1081,31 +1078,45 @@
                 <h3>Your Contact Information</h3>
                 <p>Please provide your contact information to finalize your order inquiry. We will call you to confirm delivery details.</p>
                 
-                <form action="" method="POST" id="checkout-form"> 
-                    <div class="form-group">
+                <form action="#" method="POST" id="checkout-form"> 
+                   <div class="form-group">
                         <label for="customer_name">Your Name:</label>
-                        <input type="text" id="customer_name" name="entry.103099042" required> 
+                        <input type="text" id="customer_name" name="customer_name" required autocomplete="off"> 
                     </div>
                     <div class="form-group">
                         <label for="village_name">City/Village Name:</label>
-                        <input type="text" id="village_name" name="entry.1802952520" required> 
+                        <input type="text" id="village_name" name="village_name" required autocomplete="off"> 
                     </div>
                     
                     
                     
                     <div class="form-group">
-                        <label for="customer_phone">Phone Number:</label>
-                        <input type="tel" id="customer_phone" name="entry.279624838" required>
-                    </div>
+    <label for="customer_phone">Phone Number:</label>
+    <input 
+        type="tel" 
+        id="customer_phone" 
+        name="phone_number" 
+        required 
+        autocomplete="off"
+        minlength="10" 
+        maxlength="10" 
+        pattern="[0-9]{10}" 
+        title="Phone number must be exactly 10 digits (0-9)."
+    >
+</div>
+
+
+
+
                     
-                    <input type="hidden" name="entry.206495267" id="order_data_json"> 
-                    <input type="hidden" name="entry.1481102927" id="final_total">
+                    <input type="hidden" name="order_details" id="order_data_json"> 
+                    <input type="hidden" name="final_total_amount" id="final_total">
 
                     <button id="form-back-btn" class="secondary-button" style="width: 48%; float: left;">← Back to Bill</button>
-                    <button type="submit" class="cta-button submit-button" style="width: 48%; float: right;">Submit Order Inquiry</button>
+                    <button type="submit" class="cta-button submit-button" style="width: 48%; float: right;">Submit Order </button>
                     <div style="clear:both;"></div>
                 </form>
-                <p id="order-message" style="margin-top: 15px; color: green; font-weight: bold; display: none;">✅ Inquiry Submitted Successfully!</p>
+                <p id="order-message" style="margin-top: 15px; color: green; font-weight: bold; display: none;"></p>
             </div>
             
         </div>
@@ -1192,13 +1203,21 @@
             }
         }
 
-        function handleAddToCart(event) {
-            const card = event.target.closest('.product-card');
-            const name = card.getAttribute('data-name'); // Use the data-name attribute for reliable product naming
-            const selectedRadio = card.querySelector('input[type="radio"]:checked');
-            const unit = selectedRadio.value;
-            
-            let price, unitName;
+   function handleAddToCart(event) {
+        const card = event.target.closest('.product-card');
+        
+        // 1. Get the full text from the <h3> tag (e.g., "நெல் தவிடு (Rice Bran)")
+        const fullNameWithParentheses = card.querySelector('h3').textContent.trim(); 
+        
+        // 2. Split the string at the opening parenthesis '(' and take the first part [0].
+        // This keeps only the Tamil text (e.g., "நெல் தவிடு").
+        const name = fullNameWithParentheses.split('(')[0].trim(); // 🔥 MODIFIED TO SHOW ONLY TAMIL NAME
+        
+        const selectedRadio = card.querySelector('input[type="radio"]:checked');
+        const unit = selectedRadio.value;
+        
+        let price, unitName;
+// ... rest of the function continues
 
             if (unit === 'bag') {
                 price = parseFloat(card.getAttribute('data-bag-price'));
@@ -1242,26 +1261,25 @@
             }, 1000);
         }
         
-        // Old/Existing function:
-function handleQuantityControl(event) {
-    const button = event.target;
-    const action = button.getAttribute('data-action');
-    const targetId = button.getAttribute('data-target');
-    const quantityInput = document.getElementById(targetId);
-    
-    if (!quantityInput) return;
+        function handleQuantityControl(event) {
+            const button = event.target;
+            const action = button.getAttribute('data-action');
+            const targetId = button.getAttribute('data-target');
+            const quantityInput = document.getElementById(targetId);
+            
+            if (!quantityInput) return;
 
-    let currentValue = parseInt(quantityInput.value) || 1;
-    const min = parseInt(quantityInput.getAttribute('min')) || 1;
+            let currentValue = parseInt(quantityInput.value) || 1;
+            const min = parseInt(quantityInput.getAttribute('min')) || 1;
 
-    if (action === 'increment') {
-        currentValue += 1;
-    } else if (action === 'decrement' && currentValue > min) {
-        currentValue -= 1;
-    }
-    
-    quantityInput.value = currentValue;
-}
+            if (action === 'increment') {
+                currentValue += 1;
+            } else if (action === 'decrement' && currentValue > min) {
+                currentValue -= 1;
+            }
+            
+            quantityInput.value = currentValue;
+        }
 
         function handleRemoveItem(event) {
             const productId = event.target.getAttribute('data-id');
@@ -1401,16 +1419,13 @@ function handleQuantityControl(event) {
             }
             
             // 2. Unit Select Radio Buttons
+            card.querySelectorAll('.price-selector input[type="radio"]').forEach(radio => {
+                radio.addEventListener('change', handleUnitChange);
+            });
+            
             // 3. Quantity + and - Buttons
             card.querySelectorAll('.qty-btn').forEach(button => {
-                // Desktop/Mouse Click Listener (keep this)
                 button.addEventListener('click', handleQuantityControl);
-                
-                // 🔥 MOBILE FIX: Add Touch End Listener for reliable mobile taps
-                button.addEventListener('touchend', (e) => {
-                    e.preventDefault(); // Prevents both 'touchend' and 'click' from firing
-                    handleQuantityControl(e);
-                });
             });
             
             // Set initial quantity label text
@@ -1453,47 +1468,76 @@ function handleQuantityControl(event) {
         });
         
         // Final Form Submission (Apps Script Backend Submission)
+       // ... (inside the submit listener) ...
+           // Final Form Submission (Apps Script Backend Submission)
         checkoutForm.addEventListener('submit', function(e) {
-            e.preventDefault(); 
-            // Hide form and show message
-            orderFormView.style.display = 'none';
-            orderMessage.textContent = 'Submitting order, please wait...';
-            orderMessage.style.display = 'block';
+            e.preventDefault(); // Stop default form submission
             
-            // Clear cart immediately upon submission attempt
-            cart = [];
-            updateCartDisplay();
-            
-            const formData = new FormData(checkoutForm);
-            const searchParams = new URLSearchParams();
-            for (const pair of formData) {
-                searchParams.append(pair[0], pair[1]);
-            }
+            // 1. Prepare UI for submission
+            const submitButton = e.submitter;
+            submitButton.disabled = true;
+            submitButton.textContent = 'Submitting...';
+            orderMessage.style.display = 'none'; // Hide previous messages
 
+            // 2. Collect form data and encode it
+            const formData = new FormData(checkoutForm);
+            // This is the variable that was missing/undefined
+            const searchParams = new URLSearchParams(formData); 
+
+            // 3. Make the fetch request to Google Apps Script
             fetch(APPS_SCRIPT_URL, {
                 method: 'POST',
                 body: searchParams 
             })
             .then(response => {
-                // Assuming successful submission for a standard fetch, if APPS_SCRIPT_URL is valid
-                orderMessage.textContent = '✅ Inquiry Submitted Successfully! Please call to confirm.';
-                orderMessage.style.color = 'green';
-                
-                // You can close the modal here or leave it open with the success message
-                setTimeout(closeModal, 3000); 
+                if (!response.ok) {
+                    throw new Error(`Network response was not ok, status: ${response.status}`);
+                }
+                // Handle the text/html or JSON response from Apps Script
+                return response.text().then(text => {
+                    try {
+                        // Attempt to parse as JSON if it looks like one
+                        return JSON.parse(text);
+                    } catch (error) {
+                        // If it's not JSON (like the default "Redirecting" page), treat it as a failure
+                        throw new Error(`Invalid response format. Apps Script returned: ${text.substring(0, 100)}...`);
+                    }
+                });
+            })
+            .then(data => {
+                if (data.status === 'success') {
+                   // orderMessage.textContent = '✅ Inquiry Submitted Successfully! We will call you to confirm delivery.';
+                    orderMessage.style.color = 'green';
+                    cart = []; // Clear the local cart
+                    updateCartDisplay(); // Update UI
+                    // Clear form inputs
+                    document.getElementById('customer_name').value = '';
+                    document.getElementById('village_name').value = '';
+                    document.getElementById('customer_phone').value = '';
+                    setTimeout(closeModal, 3000); 
+                } else {
+                    throw new Error(`Apps Script Error: ${data.message}`);
+                }
             })
             .catch(error => {
                 console.error('Final Submission Error:', error);
-                orderMessage.textContent = `❌ Submission Failed! Check internet or Apps Script URL. Error: ${error.message}`;
+                orderMessage.textContent = `❌ Submission Failed! Error: ${error.message}. Please check console for details.`;
                 orderMessage.style.color = 'red';
-                // Revert to form or show error in form view
+                // Revert to form to show the error
                 orderFormView.style.display = 'block'; 
+            })
+            .finally(() => {
+                // Ensure the message is shown and button is reset after fetch attempt
+                orderMessage.style.display = 'block';
+                submitButton.disabled = false;
+                submitButton.textContent = 'Submit Order';
             });
-        });
+        }); // End of submit listener
         
         // Initialize on load
         updateCartDisplay();
     });
 </script>
+           
 </body>
 </html>
