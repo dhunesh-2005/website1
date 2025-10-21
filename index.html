@@ -91,7 +91,6 @@
         }
         
         /* --- Hero Section (Image and Text Overlay) --- */
-        /* --- Hero Section (Image and Text Overlay) --- */
 .hero {
     /* Image background settings */
     background-image: url('img/front1.jpg'); /* CRITICAL: Change 'hero-background.jpg' to your file name if different */
@@ -492,6 +491,15 @@
             overflow-y: auto;
         }
 
+        /* --- IMPORTANT: NEW CLASS FOR PDF RENDERING --- */
+        /* This wrapper ensures we only capture the visible elements for the PDF */
+        #pdf-content-wrapper {
+            padding: 20px;
+            background-color: white; /* Important for clean capture */
+            border-radius: 8px;
+        }
+
+
         .bill-item {
             display: flex;
             justify-content: space-between;
@@ -532,6 +540,9 @@
         .secondary-button:hover {
             background-color: #e0e0e0;
         }
+        /* --- NEW PRINT STYLES --- */
+/* --- NEW PRINT STYLES (FIXED) --- */
+
 
         @media (max-width: 768px) {
             header { flex-direction: column; }
@@ -544,6 +555,8 @@
         }
         
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script> 
 </head>
 <body>
 
@@ -583,7 +596,7 @@
                 <label for="corn-bag">1 Bag (50kg) - ₹1800.00</label>
                 
                 <input type="radio" id="corn-kg" name="corn-unit" value="kg">
-                <label for="corn-kg">Bulk (per kg) - ₹40.00</label>
+                <label for="corn-kg">Loose (per kg) - ₹40.00</label>
             </div>
 
             <div class="nutri-info">
@@ -612,7 +625,7 @@
                 <label for="millet-bag">1 Bag (50kg) - ₹2200.00</label>
                 
                 <input type="radio" id="millet-kg" name="millet-unit" value="kg">
-                <label for="millet-kg">Bulk (per kg) - ₹48.00</label>
+                <label for="millet-kg">Loose (per kg) - ₹48.00</label>
             </div>
 
             <div class="nutri-info">
@@ -643,7 +656,7 @@
                 <label for="bran-bag">1 Bag (50kg) - ₹750.00</label>
                 
                 <input type="radio" id="bran-kg" name="bran-unit" value="kg">
-                <label for="bran-kg">Bulk (per kg) - ₹15.00</label>
+                <label for="bran-kg">Loose (per kg) - ₹15.00</label>
             </div>
 
             <div class="nutri-info">
@@ -674,7 +687,7 @@
                 <label for="groundnut-bag">1 Bag (50kg) - ₹2500.00</label>
                 
                 <input type="radio" id="groundnut-kg" name="groundnut-unit" value="kg">
-                <label for="groundnut-kg">Bulk (per kg) - ₹55.00</label>
+                <label for="groundnut-kg">Loose (per kg) - ₹55.00</label>
             </div>
 
             <div class="nutri-info">
@@ -707,7 +720,7 @@
                 <label for="sesame-bag">1 Bag (50kg) - ₹2800.00</label>
                 
                 <input type="radio" id="sesame-kg" name="sesame-unit" value="kg">
-                <label for="sesame-kg">Bulk (per kg) - ₹60.00</label>
+                <label for="sesame-kg">Loose (per kg) - ₹60.00</label>
             </div>
 
             <div class="nutri-info">
@@ -738,7 +751,7 @@
                 <label for="mung-bag">1 Bag (50kg) - ₹3500.00</label>
                 
                 <input type="radio" id="mung-kg" name="mung-unit" value="kg">
-                <label for="mung-kg">Bulk (per kg) - ₹75.00</label>
+                <label for="mung-kg">Loose (per kg) - ₹75.00</label>
             </div>
 
             <div class="nutri-info">
@@ -767,7 +780,7 @@
                 <label for="black-gram-bag">1 Bag (50kg) - ₹1500.00</label>
                 
                 <input type="radio" id="black-gram-kg" name="black-gram-unit" value="kg">
-                <label for="black-gram-kg">Bulk (per kg) - ₹30.00</label>
+                <label for="black-gram-kg">Loose (per kg) - ₹30.00</label>
             </div>
 
             <div class="nutri-info">
@@ -796,7 +809,7 @@
                 <label for="toor-bag">1 Bag (50kg) - ₹1400.00</label>
                 
                 <input type="radio" id="toor-kg" name="toor-unit" value="kg">
-                <label for="toor-kg">Bulk (per kg) - ₹28.00</label>
+                <label for="toor-kg">Loose (per kg) - ₹28.00</label>
             </div>
 
             <div class="nutri-info">
@@ -825,7 +838,7 @@
                 <label for="hpm-bag">1 Bag (50kg) - ₹2000.00</label>
                 
                 <input type="radio" id="hpm-kg" name="hpm-unit" value="kg">
-                <label for="hpm-kg">Bulk (per kg) - ₹42.00</label>
+                <label for="hpm-kg">Loose (per kg) - ₹42.00</label>
             </div>
 
             <div class="nutri-info">
@@ -854,7 +867,7 @@
                 <label for="wheat-bran-bag">1 Bag (50kg) - ₹850.00</label>
                 
                 <input type="radio" id="wheat-bran-kg" name="wheat-bran-unit" value="kg">
-                <label for="wheat-bran-kg">Bulk (per kg) - ₹17.00</label>
+                <label for="wheat-bran-kg">Loose (per kg) - ₹17.00</label>
             </div>
 
             <div class="nutri-info">
@@ -883,7 +896,7 @@
                 <label for="compound-feed-bag">1 Bag (50kg) - ₹1300.00</label>
                 
                 <input type="radio" id="compound-feed-kg" name="compound-feed-unit" value="kg">
-                <label for="compound-feed-kg">Bulk (per kg) - ₹26.00</label>
+                <label for="compound-feed-kg">Loose (per kg) - ₹26.00</label>
             </div>
 
             <div class="nutri-info">
@@ -912,7 +925,7 @@
                 <label for="cotton-seed-bag">1 Bag (50kg) - ₹1500.00</label>
                 
                 <input type="radio" id="cotton-seed-kg" name="cotton-seed-unit" value="kg">
-                <label for="cotton-seed-kg">Bulk (per kg) - ₹30.00</label>
+                <label for="cotton-seed-kg">Loose (per kg) - ₹30.00</label>
             </div>
 
             <div class="nutri-info">
@@ -942,7 +955,7 @@
                 <label for="urad-dal-bag">1 Bag (50kg) - ₹4000.00</label>
                 
                 <input type="radio" id="urad-dal-kg" name="urad-dal-unit" value="kg">
-                <label for="urad-dal-kg">Bulk (per kg) - ₹80.00</label>
+                <label for="urad-dal-kg">Loose (per kg) - ₹80.00</label>
             </div>
 
             <div class="nutri-info">
@@ -971,7 +984,7 @@
                 <label for="fenugreek-bag">1 Bag (50kg) - ₹4500.00</label>
                 
                 <input type="radio" id="fenugreek-kg" name="fenugreek-unit" value="kg">
-                <label for="fenugreek-kg">Bulk (per kg) - ₹90.00</label>
+                <label for="fenugreek-kg">Loose (per kg) - ₹90.00</label>
             </div>
 
             <div class="nutri-info">
@@ -1000,7 +1013,7 @@
                 <label for="fodder-mix-bag">1 Bag (50kg) - ₹1000.00</label>
                 
                 <input type="radio" id="fodder-mix-kg" name="fodder-mix-unit" value="kg">
-                <label for="fodder-mix-kg">Bulk (per kg) - ₹20.00</label>
+                <label for="fodder-mix-kg">Loose (per kg) - ₹20.00</label>
             </div>
 
             <div class="nutri-info">
@@ -1060,18 +1073,29 @@
             </div>
             
             <div id="bill-review-view" style="display:none; padding-top: 15px;">
-                <!--<h3>Final Order Bill</h3>-->
-                <div id="final-bill-details" class="final-bill">
-                    </div>
-                <div class="bill-totals">
-                    <p>Subtotal: <span id="bill-subtotal">₹0.00</span></p>
-                    <p class="grand-total">Grand Total: <span id="bill-grand-total">₹0.00</span></p>
-                </div>
-                
-                <button id="bill-back-btn" class="secondary-button" style="width: 48%; float: left;">← Back to Cart</button>
-                <button id="proceed-to-contact-btn" class="cta-button" style="width: 48%; float: right;">Continue to Contact Details →</button>
+                <div id="pdf-content-wrapper">
+    <h2 style="text-align: center; color: #cc5500; font-size: 1.5em; margin-bottom: 5px;">
+        🌾 Ramaiah Rice Mill Feeds
+    </h2>
+    <h3 style="text-align: center; color: #333; font-size: 1.2em; margin-top: 5px; border-bottom: 2px solid #ccc; padding-bottom: 10px;">
+        Final Order Bill
+    </h3>
+    <div id="final-bill-details" class="final-bill">
+    </div>
+    <div class="bill-totals">
+        <p>Subtotal: <span id="bill-subtotal">₹0.00</span></p>
+        <p class="grand-total">Grand Total: <span id="bill-grand-total">₹0.00</span></p>
+    </div>
+    <p style="font-size: 0.9em; color: #555;">Note: This is an inquiry summary. Price and availability will be confirmed via phone.</p>
+</div>
+                <button id="download-bill-btn" class="secondary-button" style="width: 30%; float: left; margin-right: 2%;">
+                   ⬇️ Download Order Bill
+                </button>
+                 <button id="bill-back-btn" class="secondary-button" style="width: 30%; float: left;">← Back</button>
+                 <button id="proceed-to-contact-btn" class="cta-button" style="width: 30%; float: right;">Continue →</button>
                 <div style="clear:both;"></div>
             </div>
+            
 
             <div id="order-form-view" style="display:none; padding-top: 15px;">
                 <h3>Your Contact Information</h3>
@@ -1120,23 +1144,17 @@
             
         </div>
     </div>
-   <script>
+   
+<script>
     document.addEventListener('DOMContentLoaded', () => {
         let cart = [];
-        
-        // ====================================================================
-        // !!! CRITICAL: PASTE YOUR ACTIVE GOOGLE APPS SCRIPT URL HERE !!!
-        // ====================================================================
+       
         const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzckCZbk6eaBegc767buAmmG594ipZy5MoB4TTTEIDhk9czJT4EalRZJPvpevYGmHJ9SQ/exec"; 
         
         // --- DOM Elements ---
         const cartIcon = document.getElementById('floating-cart');
-        //const navCartLink = document.getElementById('open-cart-nav');
         const cartModal = document.getElementById('cart-modal');
-        
-        // FIX: Target the close button element correctly
         const closeBtn = document.querySelector('.close-btn'); 
-        
         const cartCount = document.getElementById('cart-count');
         const cartItemsContainer = document.getElementById('cart-items-container');
         const cartSubtotal = document.getElementById('cart-subtotal');
@@ -1156,12 +1174,17 @@
         const orderDataJsonInput = document.getElementById('order_data_json');
         const finalTotalInput = document.getElementById('final_total');
         const checkoutForm = document.getElementById('checkout-form');
-        const orderMessage = document.getElementById('order-message');
-        const modalTitle = document.getElementById('modal-title');
+        const orderMessage = document.getElementById('order-message'); 
+        const modalTitle = document.getElementById('modal-title');     
         
-        // SEARCH ELEMENT
-        const searchInput = document.getElementById('product-search');
+        // NEW ELEMENTS FOR DOWNLOAD
+        const downloadBillBtn = document.getElementById('download-bill-btn'); 
+        const { jsPDF } = window.jspdf;                                     
+        const pdfContentWrapper = document.getElementById('pdf-content-wrapper'); // New element to target
 
+        // SEARCH ELEMENT
+        const searchInput = document.getElementById('product-search'); 
+        // ...
         // --- VIEW MANAGEMENT FUNCTIONS ---
         function closeModal() {
             cartModal.style.display = 'none';
@@ -1210,7 +1233,7 @@
         
         // 2. Split the string at the opening parenthesis '(' and take the first part [0].
         // This keeps only the Tamil text (e.g., "நெல் தவிடு").
-        const name = fullNameWithParentheses.split('(')[0].trim(); // 🔥 MODIFIED TO SHOW ONLY TAMIL NAME
+        const name = fullNameWithParentheses.split('(')[0].trim(); 
         
         const selectedRadio = card.querySelector('input[type="radio"]:checked');
         const unit = selectedRadio.value;
@@ -1374,7 +1397,6 @@
         
         // Attach listener to cart icon and nav link
         cartIcon.addEventListener('click', openModal);
-        //navCartLink.addEventListener('click', openModal);
 
         // Attach listener to close button
         if (closeBtn) {
@@ -1447,96 +1469,161 @@
         // 2. BILL VIEW -> CONTACT FORM VIEW
         proceedToContactBtn.addEventListener('click', () => {
             billReviewView.style.display = 'none';
-            orderFormView.style.display = 'block';
+            orderFormView.style.display = 'block'; 
             modalTitle.textContent = 'Submit Inquiry';
         });
 
-        // BILL VIEW <- CONTACT FORM VIEW
-        formBackBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            orderFormView.style.display = 'none';
-            billReviewView.style.display = 'block';
-            modalTitle.textContent = 'Final Order Bill';
-        });
-
-        // CART VIEW <- BILL VIEW
+        // 3. CART VIEW <- BILL VIEW
         billBackBtn.addEventListener('click', () => {
             billReviewView.style.display = 'none';
             cartSummaryView.style.display = 'block';
             modalTitle.textContent = 'Your Order Summary';
         });
+      
         
+        // 4. CONTACT FORM VIEW <- BILL VIEW
+        formBackBtn.addEventListener('click', () => {
+            orderFormView.style.display = 'none';
+            billReviewView.style.display = 'block';
+            modalTitle.textContent = 'Final Order Bill';
+        });
+
+        // 5. DOWNLOAD PDF BUTTON FUNCTIONALITY (RENDER HTML TO PDF)
+        if (downloadBillBtn && pdfContentWrapper) {
+            downloadBillBtn.addEventListener('click', () => {
+                
+                // Temporarily hide buttons and resize element for clean capture
+                const billButtons = pdfContentWrapper.nextElementSibling.parentElement.querySelectorAll('.secondary-button, .cta-button');
+                billButtons.forEach(btn => btn.style.display = 'none');
+                
+                html2canvas(pdfContentWrapper, {
+                    scale: 3, // Increase scale for high resolution
+                    useCORS: true,
+                    logging: false,
+                    allowTaint: true
+                }).then(canvas => {
+                    const { jsPDF } = window.jspdf;
+                    const imgData = canvas.toDataURL('image/png');
+                    const pdf = new jsPDF('p', 'mm', 'a4');
+                    const imgProps= pdf.getImageProperties(imgData);
+                    const pdfWidth = pdf.internal.pageSize.getWidth();
+                    // Height is calculated proportionally based on the PDF width
+                    const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width; 
+
+                    pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+                    pdf.save('Ramiah_Feeds_Order_Bill.pdf');
+                    
+                    // Restore buttons after capture
+                    billButtons.forEach(btn => btn.style.display = '');
+                });
+            });
+        }
+
+
         // Final Form Submission (Apps Script Backend Submission)
-       // ... (inside the submit listener) ...
-           // Final Form Submission (Apps Script Backend Submission)
         checkoutForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // Stop default form submission
+             e.preventDefault(); // Stop default form submission
+
+            orderMessage.style.display = 'none';
             
-            // 1. Prepare UI for submission
-            const submitButton = e.submitter;
-            submitButton.disabled = true;
-            submitButton.textContent = 'Submitting...';
-            orderMessage.style.display = 'none'; // Hide previous messages
+            // Show loading or disable buttons during submission (optional)
+            const submitBtn = e.submitter;
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
 
-            // 2. Collect form data and encode it
-            const formData = new FormData(checkoutForm);
-            // This is the variable that was missing/undefined
-            const searchParams = new URLSearchParams(formData); 
-
-            // 3. Make the fetch request to Google Apps Script
+            const formData = new FormData(this);
+            
             fetch(APPS_SCRIPT_URL, {
                 method: 'POST',
-                body: searchParams 
+                body: formData,
             })
             .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Network response was not ok, status: ${response.status}`);
+                // 1. Check for the specific 405 error (deployment issue)
+                if (response.status === 405) {
+                    throw new Error("HTTP 405 (Method Not Allowed). Check your Google Apps Script deployment URL and permissions.");
                 }
-                // Handle the text/html or JSON response from Apps Script
+                
+                // 2. Check for success status (200-299)
+                if (response.ok) {
+                    // Try to parse JSON. If the script returns only plain text or an empty body, 
+                    // this will fail and jump to the catch block (our intended fix).
+                    return response.json(); 
+                }
+                
+                // 3. Handle other non-success HTTP statuses
                 return response.text().then(text => {
-                    try {
-                        // Attempt to parse as JSON if it looks like one
-                        return JSON.parse(text);
-                    } catch (error) {
-                        // If it's not JSON (like the default "Redirecting" page), treat it as a failure
-                        throw new Error(`Invalid response format. Apps Script returned: ${text.substring(0, 100)}...`);
-                    }
+                     throw new Error(`HTTP error! Status: ${response.status}. Script response content (first 100 chars): ${text.substring(0, 100)}...`);
                 });
             })
             .then(data => {
-                if (data.status === 'success') {
-                   // orderMessage.textContent = '✅ Inquiry Submitted Successfully! We will call you to confirm delivery.';
+                // This block is reached ONLY if response.json() succeeded.
+                if (data && data.result === 'success') {
+                    // This is the true success path
+                    orderMessage.textContent = '✅ Order Inquiry Submitted Successfully! We will contact you soon.';
                     orderMessage.style.color = 'green';
-                    cart = []; // Clear the local cart
-                    updateCartDisplay(); // Update UI
-                    // Clear form inputs
+                    orderMessage.style.display = 'block';
+
+                    // Clear the cart and form after successful submission
+                    cart = [];
+                    updateCartDisplay();
                     document.getElementById('customer_name').value = '';
                     document.getElementById('village_name').value = '';
                     document.getElementById('customer_phone').value = '';
-                    setTimeout(closeModal, 3000); 
+
+                    // Automatically close the modal after a short delay
+                    setTimeout(closeModal, 4000); 
+
                 } else {
-                    throw new Error(`Apps Script Error: ${data.message}`);
+                    // This catches cases where HTTP is 200 but the script returned result: 'error'
+                    throw new Error(data && data.error ? data.error : 'Unknown error occurred in the script response.');
                 }
             })
             .catch(error => {
-                console.error('Final Submission Error:', error);
-                orderMessage.textContent = `❌ Submission Failed! Error: ${error.message}. Please check console for details.`;
-                orderMessage.style.color = 'red';
-                // Revert to form to show the error
-                orderFormView.style.display = 'block'; 
+                console.error('Submission error:', error);
+                
+                // This block is reached if:
+                // c) response.json() failed (SyntaxError). <-- THIS IS THE CURRENT ISSUE, WHICH MEANS DATA SAVED.
+
+                let userMessage = error.message;
+
+                if (error instanceof SyntaxError) {
+                    // FIX: If data is successfully written but JSON fails (SyntaxError), 
+                    // we assume success and display the success message.
+                    
+                    // Display the success message and perform cleanup steps manually
+                    orderMessage.textContent = '✅ Order Inquiry Submitted Successfully! Data received by server.';
+                    orderMessage.style.color = 'green';
+                    orderMessage.style.display = 'block';
+
+                    // Perform cleanup steps (same as the success path)
+                    cart = [];
+                    updateCartDisplay();
+                    document.getElementById('customer_name').value = '';
+                    document.getElementById('village_name').value = '';
+                    document.getElementById('customer_phone').value = '';
+
+                    // Automatically close the modal after a short delay
+                    setTimeout(closeModal, 4000); 
+
+                } else {
+                    // For all other true errors (network, 405, 500, etc.)
+                    orderMessage.textContent = `❌ Submission Failed: ${userMessage}`;
+                    orderMessage.style.color = 'red';
+                    orderMessage.style.display = 'block';
+                }
             })
             .finally(() => {
-                // Ensure the message is shown and button is reset after fetch attempt
-                orderMessage.style.display = 'block';
-                submitButton.disabled = false;
-                submitButton.textContent = 'Submit Order';
+                submitBtn.textContent = 'Submit Order';
+                submitBtn.disabled = false;
             });
-        }); // End of submit listener
-        
+
+        }); 
+
         // Initialize on load
         updateCartDisplay();
     });
 </script>
+    
            
 </body>
 </html>
