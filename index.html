@@ -162,8 +162,7 @@
             margin-bottom: 40px; 
             font-size: 2.5em;
         }
-/* --- NEW STYLES FOR OUT OF STOCK OVERLAY (Toor Dal Dust) --- */
-/* Container for the image and overlay */
+
 .product-image-container {
     position: relative;
     display: inline-block; /* Helps contain the absolute overlay */
@@ -536,6 +535,7 @@
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
+
         .final-bill {
             border: 1px solid #ddd;
             border-radius: 4px;
@@ -638,7 +638,7 @@
     <section id="products" class="product-grid">
         <h2>Our Premium Cattle Feed Products</h2>
 
-        <div class="product-card" data-bag-price="1800" data-kg-price="40" data-name="White Corn"> 
+        <div class="product-card" data-bag-price="1500" data-kg-price="30" data-name="White Corn"> 
             <img src="img/White Maize.jpg" alt="White Corn">
             <h3>வெள்ளை சோளம் (White Corn)</h3>
             
@@ -668,7 +668,7 @@
         </div>
         </div>
 
-        <div class="product-card" data-bag-price="2200" data-kg-price="48" data-name="Pearl Millet">
+        <div class="product-card" data-bag-price="1500" data-kg-price="30" data-name="Pearl Millet">
             <img src="img/kambu.jpg" alt="Pearl Millet">
             <h3> கம்பு (Pearl Millet)</h3>
             <p>Excellent source of energy and protein, a popular choice for poultry and cattle feed formulations.(Kambu)</p>
@@ -699,7 +699,7 @@
 
         
 
-        <div class="product-card" data-bag-price="750" data-kg-price="15" data-name="Rice Bran">
+        <div class="product-card" data-bag-price="600" data-kg-price="12" data-name="Rice Bran">
             <img src="img/thavidu.png" alt="Rice Bran">
             <h3>நெல் தவிடு (Rice Bran)</h3>
             <p>A highly nutritious and cost-effective rice milling byproduct, excellent for enhancing feed digestibility and fat content.(Nel Thavidu)</p>
@@ -730,7 +730,7 @@
 
         
 
-        <div class="product-card" data-bag-price="2500" data-kg-price="55" data-name="Peanut Oil Cake">
+        <div class="product-card" data-bag-price="3000" data-kg-price="60" data-name="Peanut Oil Cake">
             <img src="img/kadala.png" alt="Peanut Oil Cake">
             <h3>கடலை புண்ணாக்கு (Peanut Oil Cake)</h3>
             <p>An excellent source of natural protein and energy, widely used as a primary supplement for lactating dairy cattle.(Kadalai Punnakku)</p>
@@ -762,39 +762,40 @@
         
 
         
-
-        <div class="product-card" data-bag-price="2800" data-kg-price="60" data-name="Sesame Oil Cake">
-            <img src="img/ellu.png" alt="Sesame Oil Cake">
-            <h3>எள்ளு புண்ணாக்கு (Sesame Oil Cake)</h3>
-            <p>A highly palatable feed rich in crude protein and essential minerals, beneficial for maintaining milk yield and quality.(Ellu Punnakku)</p>
-            
-            <div class="price-selector">
-                <input type="radio" id="sesame-bag" name="sesame-unit" value="bag" checked>
-                <label for="sesame-bag">1 Bag (50kg) - ₹1750.00</label>
-                
-                <input type="radio" id="sesame-kg" name="sesame-unit" value="kg">
-                <label for="sesame-kg">Loose (per kg) - ₹35.00</label>
-            </div>
-
-            <div class="nutri-info">
-                <span class="nutri-stat">Protein: 42%</span>
-                <span class="nutri-stat">Fat: 8%</span>
-            </div>
-
-             <div class="cart-controls">
-    <label class="quantity-label" for="qty-sesame-unique">Quantity (Bags):</label> 
-    <div class="quantity-input-group">
-        <button type="button" class="qty-btn" data-action="decrement" data-target="qty-sesame-unique">-</button>
-        <input type="text" id="qty-sesame-unique" class="product-qty" value="1" min="1" readonly>
-        <button type="button" class="qty-btn" data-action="increment" data-target="qty-sesame-unique">+</button>
-        </div>
-    <button class="add-to-cart-btn">🛒 Add to Cart</button>
-        </div>
-        </div>
-
+<div class="product-card" data-bag-price="1750" data-kg-price="35" data-name="Sesame Oil Cake">
+    <img src="img/ellu.png" alt="Sesame Oil Cake">
+    <h3>எள்ளு புண்ணாக்கு (Sesame Oil Cake)</h3>
+    <p>A highly palatable feed rich in crude protein and essential minerals, beneficial for maintaining milk yield and quality.(Ellu Punnakku)</p>
+    
+    <div class="price-selector">
+        <input type="radio" id="sesame-bag-new" name="sesame-unit-new" value="bag" checked>
+        <label for="sesame-bag-new">1 Bag (50kg) - ₹1750.00</label>
         
+        <input type="radio" id="sesame-kg-new" name="sesame-unit-new" value="kg">
+        <label for="sesame-kg-new">Loose (per kg) - ₹35.00</label>
+    </div>
+    
+    <div class="nutri-info">
+        <span class="nutri-stat">Protein: 42%</span>
+        <span class="nutri-stat">Fat: 8%</span>
+    </div>
 
-        <div class="product-card" data-bag-price="3500" data-kg-price="75" data-name="Mung Bean Powder">
+    <div class="cart-controls">
+        <label class="quantity-label" for="qty-sesame-unique-new">Quantity (Bags):</label> 
+        <div class="quantity-input-group">
+            <button type="button" class="qty-btn" data-action="decrement" data-target="qty-sesame-unique-new">-</button>
+            <input type="text" id="qty-sesame-unique-new" class="product-qty" value="1" min="1" readonly>
+            <button type="button" class="qty-btn" data-action="increment" data-target="qty-sesame-unique-new">+</button>
+        </div>
+        <button class="add-to-cart-btn">🛒 Add to Cart</button>
+    </div>
+</div>
+       
+
+
+
+
+        <div class="product-card" data-bag-price="1750" data-kg-price="35" data-name="Mung Bean Powder">
             <img src="img/pasiparuppu.png" alt="Mung Bean Powder">
             <h3>பாசி பருப்பு தூசி (mung bean powder)</h3>
             <p>High-quality, digestible protein supplement often used to enhance growth rates and overall health in young and adult livestock.(Pasi paruppu thoosi)</p>
@@ -823,7 +824,7 @@
         </div>
         </div>
         
-        <div class="product-card" data-bag-price="1500" data-kg-price="30" data-name="Black Gram Dust">
+        <div class="product-card" data-bag-price="1350" data-kg-price="27" data-name="Black Gram Dust">
             <img src="img/uluntham.jpg" alt="Black Gram Dust">
             <h3>உளுந்தம் பருப்பு தூசி(Black gram dust)</h3>
             <p>Highly palatable and protein-rich byproduct, widely recognized for boosting lactation and providing essential energy to livestock.(Uluntham paruppu Thoosi)</p>
@@ -852,6 +853,40 @@
         </div>
         </div>
    
+        <!--Out of stock <div class="product-card" data-bag-price="1400" data-kg-price="28" data-name="Toor Dal Dust">
+    <div class="product-image-container">
+        <img src="img/thuvaram.jpg" alt="Toor Dal Dust">
+        <div class="out-of-stock-overlay">🚨 OUT OF STOCK 🚨</div>
+    </div>
+    
+    <h3>துவாரம் பருப்பு தூசி (toor dal dust)</h3>
+    <p>A cost-effective, easily digestible protein source used to enrich cattle and poultry feed for improved nutrition. (Thuvaram Paruppu Thoosi)</p>
+
+    <div class="price-selector disabled">
+        <input type="radio" id="toor-bag" name="toor-unit" value="bag" checked disabled>
+        <label for="toor-bag">1 Bag (50kg) - ₹1400.00</label>
+
+        <input type="radio" id="toor-kg" name="toor-unit" value="kg" disabled>
+        <label for="toor-kg">Loose (per kg) - ₹28.00</label>
+    </div>
+    
+    <div class="nutri-info">
+        <span class="nutri-stat">Protein: 21%</span>
+        <span class="nutri-stat">Fibre: Low</span>
+    </div>
+
+    <div class="cart-controls disabled">
+        <label class="quantity-label" for="qty-toor-unique">Quantity (Bags):</label> 
+        <div class="quantity-input-group">
+            <button type="button" class="qty-btn disabled" data-action="decrement" data-target="qty-toor-unique" disabled>-</button>
+            <input type="text" id="qty-toor-unique" class="product-qty" value="0" min="0" readonly disabled>
+            <button type="button" class="qty-btn disabled" data-action="increment" data-target="qty-toor-unique" disabled>+</button>
+        </div>
+        <button class="add-to-cart-btn disabled-btn" disabled>Out of Stock</button>
+    </div>
+</div>
+
+-->
 
 
         <div class="product-card" data-bag-price="1400" data-kg-price="28" data-name="Toor Dal Dust">
@@ -890,7 +925,7 @@
 
 
         
-        <div class="product-card" data-bag-price="2000" data-kg-price="42" data-name="High-Protein Maize">
+        <div class="product-card" data-bag-price="1500" data-kg-price="30" data-name="High-Protein Maize">
             <img src="img/maize.jpg" alt="High-Protein Maize">
             <h3>மக்காச்சோளம் (Maize)</h3>
             <p>A specialized maize variety with elevated protein levels, providing superior nutritional density for high-performance livestock.(Makka cholam/Muthu cholam)</p>
@@ -919,8 +954,8 @@
         </div>
         </div>
 
-        <div class="product-card" data-bag-price="850" data-kg-price="17" data-name="Wheat Bran">
-            <img src="img/wheat.png" alt="Wheat Bran">
+        <div class="product-card" data-bag-price="1650" data-kg-price="33" data-name="Wheat Bran">
+            <img src="img/wheat powder.png" alt="Wheat Bran">
             <h3>கோதுமை தவிடு (Wheat Bran)</h3>
             <p>Excellent source of dietary fiber, promoting healthy digestion and used as a bulk ingredient to mix into other high-density feeds.(Kodhumai Thavidu)</p>
             
@@ -948,7 +983,7 @@
         </div>
         </div>
         
-        <div class="product-card" data-bag-price="1300" data-kg-price="26" data-name="Compound Cattle Feed">
+        <div class="product-card" data-bag-price="1300" data-kg-price="28" data-name="Compound Cattle Feed">
             <img src="img/kuchchi.jpg" alt="Compound Cattle Feed">
             <h3> குச்சி தீவனம் (Cattle Feed)</h3>
             <p>A highly palatable and scientifically balanced feed designed to meet the complete nutritional needs for maintenance and milk production.(Kuchi Theevanam)</p>
@@ -977,7 +1012,7 @@
         </div>
         </div>
 
-        <div class="product-card" data-bag-price="1500" data-kg-price="30" data-name="Raw Cotton Seeds">
+        <div class="product-card" data-bag-price="4000" data-kg-price="80" data-name="Raw Cotton Seeds">
             <img src="img/paruthi.png" alt="Raw Cotton Seeds">
             <h3>பருத்தி (Raw Cotton Seeds)</h3>
             <p>An excellent source of bypass fat and fiber, providing concentrated energy for high-yielding dairy cattle.(Paruthi)</p>
@@ -1007,17 +1042,17 @@
 
         
 
-        <div class="product-card" data-bag-price="4000" data-kg-price="80" data-name="Urad Dal">
+        <div class="product-card" data-bag-price="1750" data-kg-price="35" data-name="Urad Dal">
             <img src="img/ulunthu.jpg" alt="Urad Dal">
             <h3>உளுந்தம் பருப்பு (Urad Dal)</h3>
             <p>A highly concentrated source of vegetable protein, valued for its ability to improve digestion and boost energy in animal feed formulations.(Uluntham Paruppu)</p>
             
             <div class="price-selector">
                 <input type="radio" id="urad-dal-bag" name="urad-dal-unit" value="bag" checked>
-                <label for="urad-dal-bag">1 Bag (50kg) - ₹4000.00</label>
+                <label for="urad-dal-bag">1 Bag (50kg) - ₹1750.00</label>
                 
                 <input type="radio" id="urad-dal-kg" name="urad-dal-unit" value="kg">
-                <label for="urad-dal-kg">Loose (per kg) - ₹80.00</label>
+                <label for="urad-dal-kg">Loose (per kg) - ₹35.00</label>
             </div>
 
             <div class="nutri-info">
@@ -1067,20 +1102,16 @@
 
             
 
-<div class="product-card" data-bag-price="1000" data-kg-price="20" data-name="Balanced Fodder Mix">
-    <div class="product-image-container">
-        <img src="img/mix.png" alt="Balanced Fodder Mix">
-        <div class="out-of-stock-overlay">🚨 OUT OF STOCK 🚨</div>
-    </div>
-    
+<div class="product-card" data-bag-price="1300" data-kg-price="30" data-name="Balanced Fodder Mix">
+    <img src="img/mix.png" alt="Balanced Fodder Mix">
     <h3>கலப்பு தீவனம் (Balanced Fodder Mix)</h3>
     <p>A ready-to-feed blend of forage, grains, and supplements, ensuring complete and consistent nutrition for general herd health.(Kalappu Theevanam)</p>
-    
-    <div class="price-selector disabled">
-        <input type="radio" id="fodder-mix-bag" name="fodder-mix-unit" value="bag" checked disabled>
-        <label for="fodder-mix-bag">1 Bag (50kg) - ₹1500.00</label>
-        
-        <input type="radio" id="fodder-mix-kg" name="fodder-mix-unit" value="kg" disabled>
+
+    <div class="price-selector">
+        <input type="radio" id="fodder-mix-bag" name="fodder-mix-unit" value="bag" checked>
+        <label for="fodder-mix-bag">1 Bag (45kg) - ₹1300.00</label>
+
+        <input type="radio" id="fodder-mix-kg" name="fodder-mix-unit" value="kg">
         <label for="fodder-mix-kg">Loose (per kg) - ₹30.00</label>
     </div>
 
@@ -1089,22 +1120,20 @@
         <span class="nutri-stat">Fiber: 18%</span>
     </div>
 
-    <div class="cart-controls disabled">
-        <label class="quantity-label" for="qty-fodder-mix-unique">Quantity (Bags):</label> 
+    <div class="cart-controls">
+        <label class="quantity-label" for="qty-fodder-mix-unique">Quantity (Bags):</label>
         <div class="quantity-input-group">
-            <button type="button" class="qty-btn disabled" data-action="decrement" data-target="qty-fodder-mix-unique" disabled>-</button>
-            <input type="text" id="qty-fodder-mix-unique" class="product-qty" value="0" min="0" readonly disabled>
-            <button type="button" class="qty-btn disabled" data-action="increment" data-target="qty-fodder-mix-unique" disabled>+</button>
+            <button type="button" class="qty-btn" data-action="decrement" data-target="qty-fodder-mix-unique">-</button>
+            <input type="text" id="qty-fodder-mix-unique" class="product-qty" value="1" min="1" readonly>
+            <button type="button" class="qty-btn" data-action="increment" data-target="qty-fodder-mix-unique">+</button>
         </div>
-        <button class="add-to-cart-btn disabled-btn" disabled>Out of Stock</button>
+        <button class="add-to-cart-btn">🛒 Add to Cart</button>
     </div>
 </div>
 
 
 
-
-
-        <div class="product-card" data-bag-price="2500" data-kg-price="55" data-name="Finger Millet">
+        <div class="product-card" data-bag-price="1000" data-kg-price="100" data-name="Finger Millet">
     <img src="img/keppai.png" alt="Finger Millet">
     <h3>கேப்பை / கேழ்வரகு (Finger Millet)</h3>
     <p>A powerhouse of calcium and fiber; excellent for improving bone health and providing sustained energy to livestock. Used widely in feed for dairy animals and poultry.( keppai / Kelvaragu)</p>
@@ -1132,7 +1161,7 @@
         <button class="add-to-cart-btn">🛒 Add to Cart</button>
     </div>
 </div>
-        <div class="product-card" data-bag-price="1700" data-kg-price="34" data-name="Groundnut Oil Powder">
+        <div class="product-card" data-bag-price="3000" data-kg-price="60" data-name="Groundnut Oil Powder">
     <img src="img/kadalai maavu.png" alt="Groundnut Oil Powder">
     <h3>கடலை புண்ணாக்கு மாவு (Groundnut Cake Powder)</h3>
     <p>A fine-textured, high-protein meal used as a critical ingredient in balanced poultry, fish, and cattle feed formulations. Excellent for growth and muscle development. (Kadalai Punnakku Maavu)</p>
@@ -1160,7 +1189,7 @@
         <button class="add-to-cart-btn">🛒 Add to Cart</button>
     </div>
 </div>
-<div class="product-card" data-bag-price="2100" data-kg-price="42" data-name="Sesame Cake Powder">
+<div class="product-card" data-bag-price="1750" data-kg-price="35" data-name="Sesame Cake Powder">
     <img src="img/ellu maavu.png" alt="Sesame Cake Powder">
     <h3>எள் புண்ணாக்கு மாவு (Sesame Cake Powder)</h3>
     <p>A high-quality protein and mineral supplement, particularly rich in methionine and calcium. Promotes healthy feather growth in poultry and better milk quality in dairy animals. (Ellu Punnakku Maavu)</p>
@@ -1184,6 +1213,36 @@
             <button type="button" class="qty-btn" data-action="decrement" data-target="qty-sesame-unique">-</button>
             <input type="text" id="qty-sesame-unique" class="product-qty" value="1" min="1" readonly>
             <button type="button" class="qty-btn" data-action="increment" data-target="qty-sesame-unique">+</button>
+        </div>
+        <button class="add-to-cart-btn">🛒 Add to Cart</button>
+    </div>
+</div>
+
+
+<div class="product-card" data-bag-price="1500" data-kg-price="30" data-name="Whole Wheat Grain">
+    <img src="img/wheat.png" alt="Whole Wheat Grain">
+    <h3>கோதுமை (Wheat Grain)</h3>
+    <p>A high-energy carbohydrate source often ground for inclusion in mixed feeds, providing sustained energy for growth and maintenance in livestock. (Godhumai)</p>
+    
+    <div class="price-selector">
+        <input type="radio" id="wheat-grain-bag" name="wheat-grain-unit" value="bag" checked>
+        <label for="wheat-grain-bag">1 Bag (50kg) - ₹1500.00</label>
+        
+        <input type="radio" id="wheat-grain-kg" name="wheat-grain-unit" value="kg">
+        <label for="wheat-grain-kg">Loose (per kg) - ₹30.00</label>
+    </div>
+    
+    <div class="nutri-info">
+        <span class="nutri-stat">Energy: High</span>
+        <span class="nutri-stat">Protein: 12%</span>
+    </div>
+
+    <div class="cart-controls">
+        <label class="quantity-label" for="qty-wheat-grain-unique">Quantity (Bags):</label> 
+        <div class="quantity-input-group">
+            <button type="button" class="qty-btn" data-action="decrement" data-target="qty-wheat-grain-unique">-</button>
+            <input type="text" id="qty-wheat-grain-unique" class="product-qty" value="1" min="1" readonly>
+            <button type="button" class="qty-btn" data-action="increment" data-target="qty-wheat-grain-unique">+</button>
         </div>
         <button class="add-to-cart-btn">🛒 Add to Cart</button>
     </div>
@@ -1237,12 +1296,19 @@
     <h3 style="text-align: center; color: #333; font-size: 1.2em; margin-top: 5px; border-bottom: 2px solid #ccc; padding-bottom: 10px;">
         Final Order Bill
     </h3>
+    <p style="text-align: left; font-size: 0.9em; margin-bottom: 5px;">
+        Date: <span id="bill-date"></span>
+    </p>
+    <p style="text-align: left; font-size: 0.9em; margin-top: 0; margin-bottom: 15px;">
+        Time: <span id="bill-time"></span>
+    </p>
     <div id="final-bill-details" class="final-bill">
     </div>
     <div class="bill-totals">
         <p>Subtotal: <span id="bill-subtotal">₹0.00</span></p>
         <p class="grand-total">Grand Total: <span id="bill-grand-total">₹0.00</span></p>
     </div>
+    <br>
     <p style="font-size: 0.9em; color: #555;">Note: This is an inquiry summary. Price and availability will be confirmed via phone.</p>
 </div>
                 <button id="download-bill-btn" class="secondary-button" style="width: 30%; float: left; margin-right: 2%;">
@@ -1264,7 +1330,7 @@
                         <input type="text" id="customer_name" name="customer_name" required autocomplete="off"> 
                     </div>
                     <div class="form-group">
-                        <label for="village_name">City/Village Name:</label>
+                        <label for="village_name">City / Village Name:</label>
                         <input type="text" id="village_name" name="village_name" required autocomplete="off"> 
                     </div>
                     
@@ -1512,9 +1578,22 @@
             }
         }
         
-        function updateBillReview() {
+       function updateBillReview() {
+            // Get current date and time
+            const now = new Date();
+            const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+            const timeOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
+            
+            const currentDate = now.toLocaleDateString('en-IN', dateOptions);
+            const currentTime = now.toLocaleTimeString('en-IN', timeOptions);
+
+            // Populate the new placeholders
+            document.getElementById('bill-date').textContent = currentDate;
+            document.getElementById('bill-time').textContent = currentTime;
+            
             finalBillDetails.innerHTML = '';
             let total = 0;
+            // ... rest of the function remains the same ...
             
             if (cart.length === 0) return 0;
 
