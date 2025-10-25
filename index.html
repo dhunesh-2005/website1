@@ -264,7 +264,9 @@
         }
 
         .price-selector input[type="radio"]:checked + label {
-            background-color: #d4edc4; /* Light Green Checked */
+            /* FIX: Use Dark Green for high visibility */
+            background-color: #006400; 
+            color: white; /* Ensure text is visible on the dark background */
             border-color: #006400;
             font-weight: 600;
         }
@@ -1863,4 +1865,3 @@
            
 </body>
 </html>
-
