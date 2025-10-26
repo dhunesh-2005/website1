@@ -126,7 +126,7 @@
     z-index: 2; 
     position: relative;
 }
-/* NOTE: The existing h1, p, and cta-button styles remain unchanged */
+/* NOTE: The existing h1, p, and cta-button styles remains unchanged */
 
         .cta-button {
             display: inline-block;
@@ -542,8 +542,8 @@
             border: 1px solid #ddd;
             border-radius: 4px;
             padding: 10px;
-            max-height: 250px; /* Limit height for scroll */
-            overflow-y: auto;
+            /* max-height: 250px; */ /* <-- THIS WAS REMOVED */
+            /* overflow-y: auto; */   /* <-- THIS WAS REMOVED */
         }
 
         /* --- IMPORTANT: NEW CLASS FOR PDF RENDERING --- */
@@ -647,11 +647,11 @@
             <p>High-energy grain, meticulously cleaned and processed for maximum nutritional value. Ideal for dairy and beef cattle.(vellai cholam)</p>
             
             <div class="price-selector">
-                <input type="radio" id="corn-bag" name="corn-unit" value="bag" checked>
-                <label for="corn-bag">1 Bag (50kg) - ₹1500.00</label>
-                
-                <input type="radio" id="corn-kg" name="corn-unit" value="kg">
+                <input type="radio" id="corn-kg" name="corn-unit" value="kg" checked>
                 <label for="corn-kg">Loose (per kg) - ₹30.00</label>
+                
+                <input type="radio" id="corn-bag" name="corn-unit" value="bag">
+                <label for="corn-bag">1 Bag (50kg) - ₹1500.00</label>
             </div>
 
             <div class="nutri-info">
@@ -676,11 +676,11 @@
             <p>Excellent source of energy and protein, a popular choice for poultry and cattle feed formulations.(Kambu)</p>
             
             <div class="price-selector">
-                <input type="radio" id="millet-bag" name="millet-unit" value="bag" checked>
-                <label for="millet-bag">1 Bag (50kg) - ₹1500.00</label>
-                
-                <input type="radio" id="millet-kg" name="millet-unit" value="kg">
+                <input type="radio" id="millet-kg" name="millet-unit" value="kg" checked>
                 <label for="millet-kg">Loose (per kg) - ₹30.00</label>
+                
+                <input type="radio" id="millet-bag" name="millet-unit" value="bag">
+                <label for="millet-bag">1 Bag (50kg) - ₹1500.00</label>
             </div>
 
             <div class="nutri-info">
@@ -707,11 +707,11 @@
             <p>A highly nutritious and cost-effective rice milling byproduct, excellent for enhancing feed digestibility and fat content.(Nel Thavidu)</p>
             
             <div class="price-selector">
-                <input type="radio" id="bran-bag" name="bran-unit" value="bag" checked>
-                <label for="bran-bag">1 Bag (50kg) - ₹600.00</label>
-                
-                <input type="radio" id="bran-kg" name="bran-unit" value="kg">
+                <input type="radio" id="bran-kg" name="bran-unit" value="kg" checked>
                 <label for="bran-kg">Loose (per kg) - ₹12.00</label>
+                
+                <input type="radio" id="bran-bag" name="bran-unit" value="bag">
+                <label for="bran-bag">1 Bag (50kg) - ₹600.00</label>
             </div>
 
             <div class="nutri-info">
@@ -738,11 +738,11 @@
             <p>An excellent source of natural protein and energy, widely used as a primary supplement for lactating dairy cattle.(Kadalai Punnakku)</p>
             
             <div class="price-selector">
-                <input type="radio" id="groundnut-bag" name="groundnut-unit" value="bag" checked>
-                <label for="groundnut-bag">1 Bag (50kg) - ₹3000.00</label>
-                
-                <input type="radio" id="groundnut-kg" name="groundnut-unit" value="kg">
+                <input type="radio" id="groundnut-kg" name="groundnut-unit" value="kg" checked>
                 <label for="groundnut-kg">Loose (per kg) - ₹60.00</label>
+                
+                <input type="radio" id="groundnut-bag" name="groundnut-unit" value="bag">
+                <label for="groundnut-bag">1 Bag (50kg) - ₹3000.00</label>
             </div>
 
             <div class="nutri-info">
@@ -770,11 +770,11 @@
     <p>A highly palatable feed rich in crude protein and essential minerals, beneficial for maintaining milk yield and quality.(Ellu Punnakku)</p>
     
     <div class="price-selector">
-        <input type="radio" id="sesame-bag-new" name="sesame-unit-new" value="bag" checked>
-        <label for="sesame-bag-new">1 Bag (50kg) - ₹1750.00</label>
-        
-        <input type="radio" id="sesame-kg-new" name="sesame-unit-new" value="kg">
+        <input type="radio" id="sesame-kg-new" name="sesame-unit-new" value="kg" checked>
         <label for="sesame-kg-new">Loose (per kg) - ₹35.00</label>
+        
+        <input type="radio" id="sesame-bag-new" name="sesame-unit-new" value="bag">
+        <label for="sesame-bag-new">1 Bag (50kg) - ₹1750.00</label>
     </div>
     
     <div class="nutri-info">
@@ -803,11 +803,11 @@
             <p>High-quality, digestible protein supplement often used to enhance growth rates and overall health in young and adult livestock.(Pasi paruppu thoosi)</p>
             
             <div class="price-selector">
-                <input type="radio" id="mung-bag" name="mung-unit" value="bag" checked>
-                <label for="mung-bag">1 Bag (50kg) - ₹1750.00</label>
-                
-                <input type="radio" id="mung-kg" name="mung-unit" value="kg">
+                <input type="radio" id="mung-kg" name="mung-unit" value="kg" checked>
                 <label for="mung-kg">Loose (per kg) - ₹35.00</label>
+                
+                <input type="radio" id="mung-bag" name="mung-unit" value="bag">
+                <label for="mung-bag">1 Bag (50kg) - ₹1750.00</label>
             </div>
 
             <div class="nutri-info">
@@ -832,11 +832,11 @@
             <p>Highly palatable and protein-rich byproduct, widely recognized for boosting lactation and providing essential energy to livestock.(Uluntham paruppu Thoosi)</p>
             
             <div class="price-selector">
-                <input type="radio" id="black-gram-bag" name="black-gram-unit" value="bag" checked>
-                <label for="black-gram-bag">1 Bag (50kg) - ₹1350.00</label>
-                
-                <input type="radio" id="black-gram-kg" name="black-gram-unit" value="kg">
+                <input type="radio" id="black-gram-kg" name="black-gram-unit" value="kg" checked>
                 <label for="black-gram-kg">Loose (per kg) - ₹27.00</label>
+                
+                <input type="radio" id="black-gram-bag" name="black-gram-unit" value="bag">
+                <label for="black-gram-bag">1 Bag (50kg) - ₹1350.00</label>
             </div>
 
             <div class="nutri-info">
@@ -855,42 +855,6 @@
         </div>
         </div>
    
-        <!--Out of stock <div class="product-card" data-bag-price="1400" data-kg-price="28" data-name="Toor Dal Dust">
-    <div class="product-image-container">
-        <img src="img/thuvaram.jpg" alt="Toor Dal Dust">
-        <div class="out-of-stock-overlay">🚨 OUT OF STOCK 🚨</div>
-    </div>
-    
-    <h3>துவாரம் பருப்பு தூசி (toor dal dust)</h3>
-    <p>A cost-effective, easily digestible protein source used to enrich cattle and poultry feed for improved nutrition. (Thuvaram Paruppu Thoosi)</p>
-
-    <div class="price-selector disabled">
-        <input type="radio" id="toor-bag" name="toor-unit" value="bag" checked disabled>
-        <label for="toor-bag">1 Bag (50kg) - ₹1400.00</label>
-
-        <input type="radio" id="toor-kg" name="toor-unit" value="kg" disabled>
-        <label for="toor-kg">Loose (per kg) - ₹28.00</label>
-    </div>
-    
-    <div class="nutri-info">
-        <span class="nutri-stat">Protein: 21%</span>
-        <span class="nutri-stat">Fibre: Low</span>
-    </div>
-
-    <div class="cart-controls disabled">
-        <label class="quantity-label" for="qty-toor-unique">Quantity (Bags):</label> 
-        <div class="quantity-input-group">
-            <button type="button" class="qty-btn disabled" data-action="decrement" data-target="qty-toor-unique" disabled>-</button>
-            <input type="text" id="qty-toor-unique" class="product-qty" value="0" min="0" readonly disabled>
-            <button type="button" class="qty-btn disabled" data-action="increment" data-target="qty-toor-unique" disabled>+</button>
-        </div>
-        <button class="add-to-cart-btn disabled-btn" disabled>Out of Stock</button>
-    </div>
-</div>
-
--->
-
-
         <div class="product-card" data-bag-price="1400" data-kg-price="28" data-name="Toor Dal Dust">
     <div class="product-image-container">
         <img src="img/thuvaram.jpg" alt="Toor Dal Dust">
@@ -901,11 +865,10 @@
     <p>A cost-effective, easily digestible protein source used to enrich cattle and poultry feed for improved nutrition. (Thuvaram Paruppu Thoosi)</p>
 
     <div class="price-selector disabled">
-        <input type="radio" id="toor-bag" name="toor-unit" value="bag" checked disabled>
+        <input type="radio" id="toor-kg" name="toor-unit" value="kg" disabled checked> <label for="toor-kg">Loose (per kg) - ₹28.00</label>
+        
+        <input type="radio" id="toor-bag" name="toor-unit" value="bag" disabled>
         <label for="toor-bag">1 Bag (50kg) - ₹1400.00</label>
-
-        <input type="radio" id="toor-kg" name="toor-unit" value="kg" disabled>
-        <label for="toor-kg">Loose (per kg) - ₹28.00</label>
     </div>
     
     <div class="nutri-info">
@@ -933,11 +896,11 @@
             <p>A specialized maize variety with elevated protein levels, providing superior nutritional density for high-performance livestock.(Makka cholam/Muthu cholam)</p>
             
             <div class="price-selector">
-                <input type="radio" id="hpm-bag" name="hpm-unit" value="bag" checked>
-                <label for="hpm-bag">1 Bag (50kg) - ₹1500.00</label>
-                
-                <input type="radio" id="hpm-kg" name="hpm-unit" value="kg">
+                <input type="radio" id="hpm-kg" name="hpm-unit" value="kg" checked>
                 <label for="hpm-kg">Loose (per kg) - ₹30.00</label>
+                
+                <input type="radio" id="hpm-bag" name="hpm-unit" value="bag">
+                <label for="hpm-bag">1 Bag (50kg) - ₹1500.00</label>
             </div>
 
             <div class="nutri-info">
@@ -962,11 +925,11 @@
             <p>Excellent source of dietary fiber, promoting healthy digestion and used as a bulk ingredient to mix into other high-density feeds.(Kodhumai Thavidu)</p>
             
             <div class="price-selector">
-                <input type="radio" id="wheat-bran-bag" name="wheat-bran-unit" value="bag" checked>
-                <label for="wheat-bran-bag">1 Bag (50kg) - ₹1650.00</label>
-                
-                <input type="radio" id="wheat-bran-kg" name="wheat-bran-unit" value="kg">
+                <input type="radio" id="wheat-bran-kg" name="wheat-bran-unit" value="kg" checked>
                 <label for="wheat-bran-kg">Loose (per kg) - ₹33.00</label>
+                
+                <input type="radio" id="wheat-bran-bag" name="wheat-bran-unit" value="bag">
+                <label for="wheat-bran-bag">1 Bag (50kg) - ₹1650.00</label>
             </div>
 
             <div class="nutri-info">
@@ -991,11 +954,11 @@
             <p>A highly palatable and scientifically balanced feed designed to meet the complete nutritional needs for maintenance and milk production.(Kuchi Theevanam)</p>
             
             <div class="price-selector">
-                <input type="radio" id="compound-feed-bag" name="compound-feed-unit" value="bag" checked>
-                <label for="compound-feed-bag">1 Bag (50kg) - ₹1300.00</label>
-                
-                <input type="radio" id="compound-feed-kg" name="compound-feed-unit" value="kg">
+                <input type="radio" id="compound-feed-kg" name="compound-feed-unit" value="kg" checked>
                 <label for="compound-feed-kg">Loose (per kg) - ₹28.00</label>
+                
+                <input type="radio" id="compound-feed-bag" name="compound-feed-unit" value="bag">
+                <label for="compound-feed-bag">1 Bag (50kg) - ₹1300.00</label>
             </div>
 
             <div class="nutri-info">
@@ -1020,11 +983,11 @@
             <p>An excellent source of bypass fat and fiber, providing concentrated energy for high-yielding dairy cattle.(Paruthi)</p>
             
             <div class="price-selector">
-                <input type="radio" id="cotton-seed-bag" name="cotton-seed-unit" value="bag" checked>
-                <label for="cotton-seed-bag">1 Bag (50kg) - ₹4100.00</label>
-                
-                <input type="radio" id="cotton-seed-kg" name="cotton-seed-unit" value="kg">
+                <input type="radio" id="cotton-seed-kg" name="cotton-seed-unit" value="kg" checked>
                 <label for="cotton-seed-kg">Loose (per kg) - ₹82.00</label>
+                
+                <input type="radio" id="cotton-seed-bag" name="cotton-seed-unit" value="bag">
+                <label for="cotton-seed-bag">1 Bag (50kg) - ₹4100.00</label>
             </div>
 
             <div class="nutri-info">
@@ -1050,11 +1013,11 @@
             <p>A highly concentrated source of vegetable protein, valued for its ability to improve digestion and boost energy in animal feed formulations.(Uluntham Paruppu)</p>
             
             <div class="price-selector">
-                <input type="radio" id="urad-dal-bag" name="urad-dal-unit" value="bag" checked>
-                <label for="urad-dal-bag">1 Bag (50kg) - ₹1750.00</label>
-                
-                <input type="radio" id="urad-dal-kg" name="urad-dal-unit" value="kg">
+                <input type="radio" id="urad-dal-kg" name="urad-dal-unit" value="kg" checked>
                 <label for="urad-dal-kg">Loose (per kg) - ₹35.00</label>
+                
+                <input type="radio" id="urad-dal-bag" name="urad-dal-unit" value="bag">
+                <label for="urad-dal-bag">1 Bag (50kg) - ₹1750.00</label>
             </div>
 
             <div class="nutri-info">
@@ -1079,11 +1042,11 @@
             <p>Known to stimulate appetite and improve digestion; used as a supplement to enhance overall gut health in livestock.(Venthayam)</p>
             
             <div class="price-selector">
-                <input type="radio" id="fenugreek-bag" name="fenugreek-unit" value="bag" checked>
-                <label for="fenugreek-bag">1 Bag (50kg) - ₹4500.00</label>
-                
-                <input type="radio" id="fenugreek-kg" name="fenugreek-unit" value="kg">
+                <input type="radio" id="fenugreek-kg" name="fenugreek-unit" value="kg" checked>
                 <label for="fenugreek-kg">Loose (per kg) - ₹90.00</label>
+                
+                <input type="radio" id="fenugreek-bag" name="fenugreek-unit" value="bag">
+                <label for="fenugreek-bag">1 Bag (50kg) - ₹4500.00</label>
             </div>
 
             <div class="nutri-info">
@@ -1096,7 +1059,7 @@
     <div class="quantity-input-group">
         <button type="button" class="qty-btn" data-action="decrement" data-target="qty-fenugreek-unique">-</button>
         <input type="text" id="qty-fenugreek-unique" class="product-qty" value="1" min="1" readonly>
-        <button type="button" class="qty-btn" data-action="increment" data-target="qty-fenugreek-unique">+</button>
+        <button type="button" class.="qty-btn" data-action="increment" data-target="qty-fenugreek-unique">+</button>
         </div>
     <button class="add-to-cart-btn">🛒 Add to Cart</button>
         </div>
@@ -1110,11 +1073,11 @@
     <p>A ready-to-feed blend of forage, grains, and supplements, ensuring complete and consistent nutrition for general herd health.(Kalappu Theevanam)</p>
 
     <div class="price-selector">
-        <input type="radio" id="fodder-mix-bag" name="fodder-mix-unit" value="bag" checked>
-        <label for="fodder-mix-bag">1 Bag (45kg) - ₹1300.00</label>
-
-        <input type="radio" id="fodder-mix-kg" name="fodder-mix-unit" value="kg">
+        <input type="radio" id="fodder-mix-kg" name="fodder-mix-unit" value="kg" checked>
         <label for="fodder-mix-kg">Loose (per kg) - ₹30.00</label>
+        
+        <input type="radio" id="fodder-mix-bag" name="fodder-mix-unit" value="bag">
+        <label for="fodder-mix-bag">1 Bag (45kg) - ₹1300.00</label>
     </div>
 
     <div class="nutri-info">
@@ -1141,11 +1104,11 @@
     <p>A powerhouse of calcium and fiber; excellent for improving bone health and providing sustained energy to livestock. Used widely in feed for dairy animals and poultry.( keppai / Kelvaragu)</p>
 
     <div class="price-selector">
-        <input type="radio" id="ragi-bag" name="ragi-unit" value="bag" checked>
-        <label for="ragi-bag"> 10 படி (10 padi) - ₹1000.00</label>
-
-        <input type="radio" id="ragi-kg" name="ragi-unit" value="kg">
+        <input type="radio" id="ragi-kg" name="ragi-unit" value="kg" checked>
         <label for="ragi-kg"> 1 படி (per Padi) - ₹100.00</label>
+        
+        <input type="radio" id="ragi-bag" name="ragi-unit" value="bag">
+        <label for="ragi-bag"> 10 படி (10 padi) - ₹1000.00</label>
     </div>
 
     <div class="nutri-info">
@@ -1169,11 +1132,11 @@
     <p>A fine-textured, high-protein meal used as a critical ingredient in balanced poultry, fish, and cattle feed formulations. Excellent for growth and muscle development. (Kadalai Punnakku Maavu)</p>
 
     <div class="price-selector">
-        <input type="radio" id="gop-bag" name="gop-unit" value="bag" checked>
-        <label for="gop-bag">1 Bag (50kg) - ₹3000.00</label>
-
-        <input type="radio" id="gop-kg" name="gop-unit" value="kg">
+        <input type="radio" id="gop-kg" name="gop-unit" value="kg" checked>
         <label for="gop-kg">Loose (per kg) - ₹60.00</label>
+        
+        <input type="radio" id="gop-bag" name="gop-unit" value="bag">
+        <label for="gop-bag">1 Bag (50kg) - ₹3000.00</label>
     </div>
 
     <div class="nutri-info">
@@ -1197,11 +1160,11 @@
     <p>A high-quality protein and mineral supplement, particularly rich in methionine and calcium. Promotes healthy feather growth in poultry and better milk quality in dairy animals. (Ellu Punnakku Maavu)</p>
 
     <div class="price-selector">
-        <input type="radio" id="sesame-bag" name="sesame-unit" value="bag" checked>
-        <label for="sesame-bag">1 Bag (50kg) - ₹1750.00</label>
-
-        <input type="radio" id="sesame-kg" name="sesame-unit" value="kg">
+        <input type="radio" id="sesame-kg" name="sesame-unit" value="kg" checked>
         <label for="sesame-kg">Loose (per kg) - ₹35.00</label>
+        
+        <input type="radio" id="sesame-bag" name="sesame-unit" value="bag">
+        <label for="sesame-bag">1 Bag (50kg) - ₹1750.00</label>
     </div>
 
     <div class="nutri-info">
@@ -1227,11 +1190,11 @@
     <p>A high-energy carbohydrate source often ground for inclusion in mixed feeds, providing sustained energy for growth and maintenance in livestock. (Godhumai)</p>
     
     <div class="price-selector">
-        <input type="radio" id="wheat-grain-bag" name="wheat-grain-unit" value="bag" checked>
-        <label for="wheat-grain-bag">1 Bag (50kg) - ₹1500.00</label>
-        
-        <input type="radio" id="wheat-grain-kg" name="wheat-grain-unit" value="kg">
+        <input type="radio" id="wheat-grain-kg" name="wheat-grain-unit" value="kg" checked>
         <label for="wheat-grain-kg">Loose (per kg) - ₹30.00</label>
+        
+        <input type="radio" id="wheat-grain-bag" name="wheat-grain-unit" value="bag">
+        <label for="wheat-grain-bag">1 Bag (50kg) - ₹1500.00</label>
     </div>
     
     <div class="nutri-info">
@@ -1741,14 +1704,36 @@
                     allowTaint: true
                 }).then(canvas => {
                     const { jsPDF } = window.jspdf;
-                    const imgData = canvas.toDataURL('image/png');
+                    
                     const pdf = new jsPDF('p', 'mm', 'a4');
-                    const imgProps= pdf.getImageProperties(imgData);
                     const pdfWidth = pdf.internal.pageSize.getWidth();
-                    // Height is calculated proportionally based on the PDF width
-                    const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width; 
+                    const pdfHeight = pdf.internal.pageSize.getHeight(); // Get standard A4 height
+                    
+                    const imgData = canvas.toDataURL('image/png');
+                    const imgProps = pdf.getImageProperties(imgData);
+                    
+                    // Calculate proportional image height for the PDF width
+                    const imgHeight = (imgProps.height * pdfWidth) / imgProps.width;
+                    
+                    let heightLeft = imgHeight;
+                    let position = 0; // Starting position on the Y axis
+                    
+                    const pageOffset = 1; // Small offset in mm to compensate for cutoff
+                    
+                    // Add the first page
+                    pdf.addImage(imgData, 'PNG', 0, position, pdfWidth, imgHeight);
+                    heightLeft -= pdfHeight;
 
-                    pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+                    // Loop through and add remaining pages
+                    while (heightLeft > 0) {
+                        position = -(pdfHeight - pageOffset); // Shift image up by page height minus offset
+                        
+                        pdf.addPage();
+                        // Add image starting at the top edge of the new page, shifted up by the pages already covered
+                        pdf.addImage(imgData, 'PNG', 0, position, pdfWidth, imgHeight); 
+                        heightLeft -= pdfHeight;
+                    }
+
                     pdf.save('Ramiah_Feeds_Order_Bill.pdf');
                     
                     // Restore buttons after capture
