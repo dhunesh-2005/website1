@@ -1731,49 +1731,58 @@
         });
 
         // 5. DOWNLOAD PDF BUTTON FUNCTIONALITY (RENDER HTML TO PDF)
+       // 5. DOWNLOAD PDF BUTTON FUNCTIONALITY (FIXED FOR MOBILE)
         if (downloadBillBtn && pdfContentWrapper) {
             downloadBillBtn.addEventListener('click', () => {
                 
-                // Temporarily hide buttons and resize element for clean capture
+                // Get the element to capture
+                const captureElement = pdfContentWrapper;
+                
+                // Temporarily hide buttons
                 const billButtons = pdfContentWrapper.nextElementSibling.parentElement.querySelectorAll('.secondary-button, .cta-button');
                 billButtons.forEach(btn => btn.style.display = 'none');
                 
-                html2canvas(pdfContentWrapper, {
+                html2canvas(captureElement, {
                     scale: 3, // Increase scale for high resolution
                     useCORS: true,
                     logging: false,
-                    allowTaint: true
+                    allowTaint: true,
+                    
+                    // --- FIX 1: Force capture of the *full* scrollable height/width ---
+                    width: captureElement.scrollWidth,
+                    height: captureElement.scrollHeight
+                    
                 }).then(canvas => {
                     const { jsPDF } = window.jspdf;
                     
                     const pdf = new jsPDF('p', 'mm', 'a4');
                     const pdfWidth = pdf.internal.pageSize.getWidth();
-                    const pdfHeight = pdf.internal.pageSize.getHeight(); // Get standard A4 height
+                    const pdfHeight = pdf.internal.pageSize.getHeight(); 
                     
                     const imgData = canvas.toDataURL('image/png');
                     const imgProps = pdf.getImageProperties(imgData);
                     
-                    // Calculate proportional image height for the PDF width
-                    const imgHeight = (imgProps.height * pdfWidth) / imgProps.width;
+                    // Calculate image dimensions to fit PDF width
+                    const imgWidth = pdfWidth;
+                    const imgHeight = (imgProps.height * imgWidth) / imgProps.width;
                     
                     let heightLeft = imgHeight;
-                    let position = 0; // Starting position on the Y axis
-                    
-                    const pageOffset = 1; // Small offset in mm to compensate for cutoff
+                    let position = 0; // This is the Y-offset
                     
                     // Add the first page
-                    pdf.addImage(imgData, 'PNG', 0, position, pdfWidth, imgHeight);
-                    heightLeft -= pdfHeight;
+                    pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                    heightLeft -= pdfHeight; // Calculate remaining height
 
-                    // Loop through and add remaining pages
+                    // --- FIX 2: Corrected pagination loop ---
                     while (heightLeft > 0) {
-                        position = -(pdfHeight - pageOffset); // Shift image up by page height minus offset
+                        position -= pdfHeight; // Move the Y-position up by one page
                         
                         pdf.addPage();
-                        // Add image starting at the top edge of the new page, shifted up by the pages already covered
-                        pdf.addImage(imgData, 'PNG', 0, position, pdfWidth, imgHeight); 
-                        heightLeft -= pdfHeight;
+                        // Add the *same* long image, but starting at the new negative Y-offset
+                        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight); 
+                        heightLeft -= pdfHeight; // Decrement remaining height
                     }
+                    // --- END OF FIX ---
 
                     pdf.save('Ramiah_Feeds_Order_Bill.pdf');
                     
@@ -1782,7 +1791,6 @@
                 });
             });
         }
-
 
         // Final Form Submission (Apps Script Backend Submission)
         checkoutForm.addEventListener('submit', function(e) {
