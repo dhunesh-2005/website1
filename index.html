@@ -53,12 +53,14 @@
             font-weight: 700;
             color: #8b4513; /* Brown/Earth Tone */
             flex-shrink: 0; /* Prevents logo from shrinking */
+            order: 1; /* Desktop order: 1 */
         }
         
         /* New style for the search container */
         .search-container {
-            flex-grow: 1; /* Allows search bar to take up available space */
+            /* flex-grow: 1; */ /* <-- REMOVED to stop it from taking all space */
             max-width: 400px;
+            order: 3; /* Desktop order: 3 */
         }
 
         #product-search {
@@ -70,6 +72,21 @@
             font-size: 1em;
         }
 
+        /* --- NEW: Menu Toggle Button (Hamburger) --- */
+        #menu-toggle {
+            display: none; /* Hidden on desktop */
+            font-size: 1.8em;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #333;
+            padding: 0 5px; /* Add some tap area */
+        }
+
+        /* NEW STYLE FOR NAV */
+        nav {
+            order: 2; /* Desktop order: 2 */
+        }
 
         nav a {
             margin-left: 25px;
@@ -77,6 +94,96 @@
             padding: 8px 12px;
             border-radius: 4px;
         }
+        
+        /* NEW: Class to show nav on mobile */
+        nav.nav-open {
+            display: flex;
+        }
+
+        /* --- NEW: Notification Bell Styles --- */
+        .notification-container {
+            position: relative; /* Anchor for the dropdown */
+        }
+
+        #notification-bell {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5em; /* Bell icon size */
+            position: relative;
+            color: #333;
+            padding: 0 5px; /* Add some tap area */
+        }
+
+        .notification-dot {
+            position: absolute;
+            top: 1px;
+            right: 2px;
+            width: 9px;
+            height: 9px;
+            background-color: red;
+            border-radius: 50%;
+            border: 1px solid white;
+        }
+
+        .notification-dropdown {
+            display: none; /* Hidden by default */
+            position: absolute;
+            top: 100%; /* Position below the bell */
+            right: 0;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            width: 320px;
+            max-width: 90vw;
+            z-index: 2001; /* Above other header content */
+            border: 1px solid #eee;
+            margin-top: 10px; /* Space from header */
+        }
+
+        .notification-dropdown.show {
+            display: block; /* Show with JS */
+        }
+
+        .notification-header {
+            font-weight: 600;
+            font-size: 1.1em;
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .notification-item {
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .notification-item:last-child {
+            border-bottom: none;
+        }
+
+        .notification-item a {
+            display: block;
+            padding: 12px 15px;
+            font-size: 0.9em;
+            line-height: 1.4;
+            color: #333;
+        }
+        .notification-item a:hover {
+            background-color: #f7f7f7;
+        }
+
+        .notification-item.new a {
+            color: #d90000; /* Red for new items */
+            font-weight: 500;
+        }
+        /* --- END Notification Styles --- */
+
+        /* --- NEW: Wrapper for header icons --- */
+        .header-icons {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Space between bell and hamburger */
+            order: 4; /* Desktop: Logo, Nav, Search, Icons */
+        }
+
 
         .cta-nav {
             background-color: #ff8c00; /* Bright Orange Accent */
@@ -599,14 +706,64 @@
 /* --- NEW PRINT STYLES (FIXED) --- */
 
 
+        /* --- MODIFIED MEDIA QUERY (FOR NEW LAYOUT) --- */
         @media (max-width: 768px) {
-            header { flex-direction: column; }
-            nav { margin-top: 10px; }
-            nav a { margin: 0 8px; }
+            header { 
+                flex-direction: row; 
+                flex-wrap: wrap;    
+                justify-content: space-between; /* Puts Logo left, Icons right */
+                align-items: center;
+                gap: 10px; 
+            }
+            
+            .logo { 
+                order: 1; 
+                font-size: 1.5em; 
+            }
+            
+            /* NEW: Icon wrapper on mobile */
+            .header-icons {
+                order: 2; /* Right side of top row */
+            }
+
+            .notification-container {
+                order: 2; /* Bell second on right */
+            }
+            
+            #menu-toggle {
+                display: block;
+                order: 1; /* Hamburger first on right */
+            }
+
+            .search-container { 
+                order: 3; /* Search bar on its own row */
+                width: 100%;
+                flex-basis: 100%; /* Force new line for search */
+                margin-top: 10px; 
+            }
+            
+            nav { 
+                display: none; 
+                order: 4; /* Nav panel last */
+                width: 100%;   
+                margin-top: 10px; 
+                flex-direction: column; 
+            }
+
+            nav a { 
+                margin: 0; /* Remove side margin */
+                padding: 12px; /* Add padding for tapping */
+                text-align: center;
+                border-bottom: 1px solid #f0f0f0;
+            }
+            nav a:last-child {
+                border-bottom: none;
+            }
+
+
             .hero h1 { font-size: 2em; }
             .product-card { width: 100%; }
             .about-content ul { flex-direction: column; gap: 10px; }
-
         }
         
     </style>
@@ -618,15 +775,40 @@
     <header>
         <div class="logo">🌾 Ramiah Rice Mill Feeds</div>
         
+        <div class="header-icons">
+            <button id="menu-toggle" aria-label="Open navigation menu">
+                &#9776; </button>
+            
+            <div class="notification-container">
+                <button id="notification-bell" aria-label="Open notifications">
+                    🔔
+                    <span class="notification-dot"></span> </button>
+                <div id="notification-dropdown" class="notification-dropdown">
+                    <div class="notification-header">Notifications</div>
+                    <div class="notification-item new">
+                        <a href="#">Welcome 🎊</a>
+                    </div>
+                    <!--<div class="notification-item">
+                        <a href="#">Exam dates for July 2025 Semester - 11th, 12th, 13th, 14th December 2025 have been finalized</a>
+                    </div>
+                    <div class="notification-item">
+                        <a href="#">Exam Registration is open for July 2025 Semester courses</a>
+                    </div>
+                    <div class="notification-item">
+                        <a href="#">Framework for Universities to conduct examinations for SWAYAM Courses</a>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+        
         <div class="search-container">
             <input type="text" id="product-search" placeholder="Search products by name or nutrient..." >
         </div>
         
-       <nav>
-    <a href="#home">Home</a>
-    <a href="#products">Products</a>
-    <a href="#about">About Us</a>
-</nav>
+       <nav id="main-nav"> <a href="#home">Home</a>
+            <a href="#products">Products</a>
+            <a href="#about">About Us</a>
+        </nav>
     </header>
 
     <section id="home" class="hero">
@@ -987,7 +1169,7 @@
                 <label for="cotton-seed-kg">Loose (per kg) - ₹82.00</label>
                 
                 <input type="radio" id="cotton-seed-bag" name="cotton-seed-unit" value="bag">
-                <label for="cotton-seed-bag"> Bag (50kg) - ₹4100.00</label>
+                <label for="cotton-seed-bag"> Bag (43kg) - ₹3500.00</label>
             </div>
 
             <div class="nutri-info">
@@ -1374,7 +1556,38 @@
 
         // SEARCH ELEMENT
         const searchInput = document.getElementById('product-search'); 
-        // ...
+
+        // --- NEW HAMBURGER MENU LOGIC ---
+        const menuToggle = document.getElementById('menu-toggle');
+        const mainNav = document.getElementById('main-nav');
+        
+        if (menuToggle && mainNav) {
+            menuToggle.addEventListener('click', (event) => {
+                event.stopPropagation();
+                mainNav.classList.toggle('nav-open');
+            });
+        }
+        // --- END NEW LOGIC ---
+
+        // --- NEW NOTIFICATION BELL LOGIC ---
+        const notificationBell = document.getElementById('notification-bell');
+        const notificationDropdown = document.getElementById('notification-dropdown');
+
+        if (notificationBell && notificationDropdown) {
+            notificationBell.addEventListener('click', (event) => {
+                event.stopPropagation(); // Prevent window click from firing
+                notificationDropdown.classList.toggle('show');
+                
+                // Optional: Hide the red dot when opened
+                const dot = notificationBell.querySelector('.notification-dot');
+                if (dot) {
+                    dot.style.display = 'none';
+                }
+            });
+        }
+        // --- END NEW LOGIC ---
+
+
         // --- VIEW MANAGEMENT FUNCTIONS ---
         function closeModal() {
             cartModal.style.display = 'none';
@@ -1530,7 +1743,7 @@
                     const itemHTML = `
                         <div class="cart-item">
                             <div class="cart-item-details">
-                                <strong>${item.name}</strong> 
+                                F<strong>${item.name}</strong> 
                                 <br>
                                 ${item.qty} ${item.unit} @ ₹${item.price.toFixed(2)} per unit
                             </div>
@@ -1655,6 +1868,20 @@
             const clickedDismiss = event.target.closest('.close-btn');
             if (clickedDismiss) {
                 closeModal();
+            }
+
+            // --- NEW: Close notification dropdown if clicking outside ---
+            if (notificationDropdown && notificationDropdown.classList.contains('show')) {
+                if (!notificationBell.contains(event.target) && !notificationDropdown.contains(event.target)) {
+                    notificationDropdown.classList.remove('show');
+                }
+            }
+            
+            // --- NEW: Close hamburger menu if clicking outside ---
+            if (mainNav && mainNav.classList.contains('nav-open')) {
+                if (!menuToggle.contains(event.target) && !mainNav.contains(event.target)) {
+                    mainNav.classList.remove('nav-open');
+                }
             }
         });
         
